@@ -1,0 +1,16 @@
+.myeclipse/
+.settings/
+.mymetadata
+*.bak
+*.class
+WebRoot/WEB-INF/classes/
+src/db.properties
+src/hibernate_mysql.cfg.xml
+src/spring.cfg.xml
+*.doc
+bin/
+*.chm
+.classpath
+.svn/ 
+.project
+*.txt

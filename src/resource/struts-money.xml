@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="money" namespace="/money" extends="struts2"> 
+		<action name="homepageurl" class="money.homepage.HomePageUrlAction">
+			<result name="list">
+				/WEB-INF/jsp/homepageurl/HomePageUrllist.jsp
+			</result>
+			<result name="detail">
+				/WEB-INF/jsp/homepageurl/HomePageUrlinfo.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/homepageurl/HomePageUrledit.jsp
+			</result>
+		</action> 
+		<action name="filemanager" class="money.filemanage.FileManagerAction">
+			<result name="list">
+				/WEB-INF/jsp/filemanager/FileManagerlist.jsp
+			</result>
+			<result name="detail">
+				/WEB-INF/jsp/filemanager/FileManagerinfo.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/filemanager/FileManageredit.jsp
+			</result>
+		</action>
+		<action name="role" class="money.rolemanager.RoleAction">
+			<result name="list">
+				/WEB-INF/jsp/role/Rolelist.jsp
+			</result>
+			<result name="detail">
+				/WEB-INF/jsp/role/Roleinfo.jsp
+			</result>
+			<result name="addUserRolelist">
+				/WEB-INF/jsp/role/addUserRolelist.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/role/Roleedit.jsp
+			</result>
+			<result name="roleMenuTree">
+				/WEB-INF/jsp/role/tree.jsp
+			</result>
+			<result name="userRoleList">
+				/WEB-INF/jsp/role/checkedRolelist.jsp
+			</result>
+		</action> 
+		<action name="usermenuright" class="money.role.UserMenuRightAction">
+			<result name="menulist">
+				/WEB-INF/jsp/role/Menulist.jsp
+			</result>
+			<result name="rolepage">
+				/WEB-INF/jsp/role/UserMenuRightlist.jsp
+			</result>
+		</action> 
+		<action name="myuser" class="money.myuser.MyUserAction">
+			<result name="list">
+				/WEB-INF/jsp/myuser/MyUserlist.jsp
+			</result>
+			<result name="gridtree">
+				/WEB-INF/jsp/myuser/MyGridTree.jsp
+			</result>
+			<result name="detail">
+				/WEB-INF/jsp/myuser/MyUserinfo.jsp
+			</result>
+			<result name="myContact">
+				/WEB-INF/jsp/management/user/editContext.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/myuser/MyUseredit.jsp
+			</result>
+		</action> 
+ 
+
+		<action name="cache" class="money.cache.CacheAction">
+			<result name="list">/WEB-INF/jsp/cache/list.jsp</result>
+			<result name="detail">/WEB-INF/jsp/cache/info.jsp</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/cache/edit.jsp
+			</result>
+		</action>
+
+		<action name="tree" class="money.tree.TreeAction">
+			<result name="tree">
+				/WEB-INF/jsp/common/tree.jsp
+			</result>
+			<result name="demo">/ztree/demo/cn/index.html</result>
+		</action>
+		<action name="param" class="money.param.ParamAction">
+			<result name="list">
+				/WEB-INF/jsp/param/Paramlist.jsp
+			</result>
+			<result name="detail">
+				/WEB-INF/jsp/param/Paraminfo.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/param/Paramedit.jsp
+			</result>
+		</action> 
+		<action name="superconsole" class="common.MyJdbcAction">
+			<result name="list">/WEB-INF/jsp/superconsole/MyJsp.jsp</result>
+		</action>
+
+		<action name="question" class="money.question.QuestionAction">
+			<result name="list">/WEB-INF/jsp/question/list.jsp</result>
+			<result name="detail">
+				/WEB-INF/jsp/question/info.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/question/edit.jsp
+			</result>
+			<result name="query">
+				/WEB-INF/jsp/question/query.jsp
+			</result>
+			<result name="report">
+				/WEB-INF/jsp/question/report.jsp
+			</result>
+		</action>
+
+		<action name="org" class="money.org.OrgAction">
+			<result name="list">/WEB-INF/jsp/org/OrgList.jsp</result>
+			<result name="detail">/WEB-INF/jsp/org/OrgInfo.jsp</result>
+			<result name="query">/WEB-INF/jsp/org/OrgQuery.jsp</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/org/OrgEdit.jsp
+			</result>
+		</action> 
+
+		<action name="paramtype" class="money.paramtype.ParamTypeAction">
+			<result name="list">
+				/WEB-INF/jsp/paramtype/ParamTypelist.jsp
+			</result>
+			<result name="detail">
+				/WEB-INF/jsp/paramtype/ParamTypeinfo.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/paramtype/ParamTypeedit.jsp
+			</result>
+		</action>
+ 
+
+		<action name="menu" class="money.menu.MenuAction">
+			<result name="list">
+				/WEB-INF/jsp/menu/Menulist.jsp
+			</result>
+			<result name="detail">
+				/WEB-INF/jsp/menu/Menuinfo.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/menu/Menuedit.jsp
+			</result>
+			<result name="role_menu_list">
+				/WEB-INF/jsp/role/Menulist.jsp
+			</result>
+		</action> 
+	</package>
+</struts>
