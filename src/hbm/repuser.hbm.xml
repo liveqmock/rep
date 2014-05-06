@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="rep.user.RepUserVO" table="rep_user">
+		<id name="sno" column="id" type="int">
+			<generator class="increment"></generator>
+		</id>
+				<property name="orderNo" column="userid" type="int" />
+				<property name="brandName" column="brandname" type="string" />
+				<property name="brandType" column="brandtype" type="string" />
+				<property name="area" column="area" type="double" />
+				<property name="address" column="address" type="string" />
+				<property name="masterPrice" column="price" type="double" />
+				<property name="workNum" column="people_flownum_work" type="int" />
+				<property name="weekendNum" column="people_flownum_weekend" type="int" />
+				<property name="phone" column="phone" type="string" />
+	</class>
+
+	<query name="rep.user.RepUserDao.findRecordById">
+		<![CDATA[from RepUserVO as repUserDao where sno = ?]]>
+	</query>
+</hibernate-mapping>

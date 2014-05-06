@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	<bean id="repuserManager" class="rep.user.RepUserManagerImpl">
+		<constructor-arg index="0" ref="repuserDao"></constructor-arg>
+	</bean>
+	<bean id="repdataManager" class="rep.data.RepDataManagerImpl">
+		<constructor-arg index="0" ref="repdataDao"></constructor-arg>
+	</bean>
+	<bean id="repstatsManager" class="rep.stats.RepStatsManagerImpl">
+		<constructor-arg index="0" ref="repstatsDao"></constructor-arg>
+	</bean>
+	<bean id="repstatsDao" parent="daoProxy">
+		<property name="proxyInterfaces">
+			<value>rep.stats.RepStatsDao</value>
+		</property>
+		<property name="target">
+			<bean parent="baseDao">
+				<constructor-arg value="rep.stats.RepStatsVO">
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="repdataDao" parent="daoProxy">
+		<property name="proxyInterfaces">
+			<value>rep.data.RepDataDao</value>
+		</property>
+		<property name="target">
+			<bean parent="baseDao">
+				<constructor-arg value="rep.data.RepDataVO">
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	<bean id="repuserDao" parent="daoProxy">
+		<property name="proxyInterfaces">
+			<value>rep.user.RepUserDao</value>
+		</property>
+		<property name="target">
+			<bean parent="baseDao">
+				<constructor-arg value="rep.user.RepUserVO">
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+</beans>

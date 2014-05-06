@@ -35,7 +35,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected static Log log = null;  
+	protected static Log log = null;
 	protected static BusinessFactory bf;
 	protected static Configuration appConfig;
 
@@ -44,7 +44,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 	@Deprecated
 	protected HttpServletResponse response = null;
 	protected static final String OPERATION_DONE = "operationDone";
-	
+
 	private ActionProxy proxy;
 
 	private int statusCode = 200;
@@ -62,27 +62,29 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 	private String orderDirection;
 	private String keywords;
 	private int totalCount = 0;
-	protected void writeLog(String str){
+
+	protected void writeLog(String str) {
 		log.info(str);
 	}
-	
-	protected void error(String str){
+
+	protected void error(String str) {
 		log.error(str);
 	}
-	
+
 	/**
 	 * 杩斿洖瀛楃涓蹭紶鍓嶅彴杈揿嚭,阃傜敤浜巃jax镄勮皟鐢?
+	 * 
 	 * @param response
 	 * @param str
 	 */
-	protected void writeToPage(HttpServletResponse response ,String str){
+	protected void writeToPage(HttpServletResponse response, String str) {
 		try {
-			response.setContentType("text/html;charset=GBK"); 
+			response.setContentType("text/html;charset=GBK");
 			response.getWriter().write(str);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	} 
+	}
 
 	static {
 		bf = BusinessFactory.getFactory();
@@ -92,10 +94,11 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 	public ActionProxy getProxy() {
 		return proxy;
 	}
-	
-	public String getNamespace(){
+
+	public String getNamespace() {
 		String namespace = proxy.getNamespace();
-		if ("/".equals(namespace)) namespace = "";
+		if ("/".equals(namespace))
+			namespace = "";
 
 		return namespace;
 	}
@@ -114,8 +117,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 		this.response = response;
 	}
 
-	protected boolean verifyValidationCode(
-			String validationCode) {
+	protected boolean verifyValidationCode(String validationCode) {
 
 		boolean enableVerify = appConfig
 				.getBoolean("validation-code.validation-code-enable");
@@ -126,8 +128,8 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 
 			String randomCode = null;
 			try {
-				randomCode = (String) ActionContext.getContext().getSession().get(
-						Constants.VALIDATION_CODE);
+				randomCode = (String) ActionContext.getContext().getSession()
+						.get(Constants.VALIDATION_CODE);
 				System.out.println(randomCode + " : " + validationCode);
 			} catch (Exception e) {
 				log.error(e);
@@ -157,7 +159,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 				fos.write(buffer, 0, n);
 			}
 
-			retCode = true; 
+			retCode = true;
 		} catch (FileNotFoundException fnfe) {
 			System.out.println("fnfe:" + fnfe);
 		} catch (IOException ioe) {
@@ -201,10 +203,10 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 		return statusCode;
 	}
 
-	public void setStatusCode(int statusCode){
+	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
 	}
-	
+
 	public String getMessage() {
 		return message;
 	}
@@ -251,15 +253,17 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 		else
 			return "alert";
 	}
-	
+
 	private String ajaxForward(int statusCode) {
 		this.statusCode = statusCode;
 		return OPERATION_DONE;
 	}
+
 	protected String ajaxForwardSuccess(String message) {
 		this.message = message;
 		return ajaxForward(200);
 	}
+
 	protected String ajaxForwardError(String message) {
 		this.message = message;
 		return ajaxForward(300);
@@ -279,7 +283,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 
 	public void setValidationCode(String validationCode) {
 		this.validationCode = validationCode;
-	}  
+	}
 
 	public int getPageNum() {
 		return pageNum;
@@ -329,9 +333,9 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 		this.orderDirection = orderDirection;
 	}
 
-	public String realOrderField(){
+	public String realOrderField() {
 		if ("desc".equalsIgnoreCase(orderDirection))
-			return orderField+"_DESC";
+			return orderField + "_DESC";
 		return null;
 	}
 }

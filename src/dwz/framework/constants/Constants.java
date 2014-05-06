@@ -1,6 +1,21 @@
 ﻿package dwz.framework.constants;
 
 public interface Constants {
+	/**
+	 * 请求成功
+	 */
+	int SUCCESS = 0;
+	/**
+	 * 请求不正确
+	 */
+	int WRONG_REQUEST = 1;
+	/**
+	 * 服务端异常
+	 */
+	int SERVICE_ERROR = 2;
+	String ANDROID = "android";
+
+	String PINGGUO = "iphone";
 
 	String FACTORY_CLASS_KEY = "app.factory.class";
 
@@ -20,7 +35,7 @@ public interface Constants {
 
 	String STANDARD_PASSPORT_CLASS = "dwz.framework.core.passport.StandardPassport";
 
-//	String X509_PASSPORT_CLASS = "dwz.framework.core.passport.X509Passport";
+	// String X509_PASSPORT_CLASS = "dwz.framework.core.passport.X509Passport";
 
 	String PASSPORT_USERNAME = "app_username";
 

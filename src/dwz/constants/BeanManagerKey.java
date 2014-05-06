@@ -1,12 +1,12 @@
 ﻿package dwz.constants;
 
 public enum BeanManagerKey {
-	sessionManager,mailManager,treeManager,planManager,
-	roleManager,setupManager,systemLogManager,cacheManager,
+	sessionManager,mailManager,treeManager,planManager,repdataManager,
+	roleManager,setupManager,systemLogManager,cacheManager,repstatsManager,
 	newsManager,contentManager,websiteManager,categoryManager,
-	queryGridTreeBO,moneyManager,allSelectManager,userManager,
-	paramManager,paramtypeManager, moneyTypeManager,stockmanagerManager,
-	menuManager,orgManager,questionManager,diaryManager,myuserManager,orderbasemanagerManager,
+	queryGridTreeBO,moneyManager,allSelectManager,userManager,repuserManager,
+	paramManager,paramtypeManager, 
+	menuManager,orgManager,questionManager,myuserManager,
 	usermenurightManager,rolewithmenuManager,homepageurlManager,userrolerightManager,
 	workflowDeploymentManager,fileManager,filemanagerManager
 }

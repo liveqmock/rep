@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="rep.data.RepDataVO" table="rep_data">
+		<id name="sno" column="id" type="int">
+			<generator class="increment"></generator>
+		</id>
+				<property name="inputDate" column="indate" type="date" />
+				<property name="dataType" column="datatype" type="string" />
+				<property name="comeNum" column="come_num" type="int" />
+				<property name="instrestNum" column="intrest_num" type="int" />
+				<property name="tryNum" column="try_num" type="int" />
+				<property name="buyNum" column="buy_num" type="int" />
+				<property name="oldNum" column="old_num" type="int" />
+				<property name="param1" column="param1" type="string" />
+				<property name="param2" column="param2" type="string" />
+				<property name="param3" column="param3" type="string" />
+	</class>
+
+	<query name="rep.data.RepDataDao.findRecordById">
+		<![CDATA[from RepDataVO as repDataDao where sno = ?]]>
+	</query>
+</hibernate-mapping>

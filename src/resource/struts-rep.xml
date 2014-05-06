@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="rep" namespace="/rep" extends="struts2">
+		<action name="repuser" class="rep.user.RepUserAction">
+			<result name="list">
+				/WEB-INF/jsp/repuser/RepUserlist.jsp
+			</result>
+					<result name="detail">
+						/WEB-INF/jsp/repuser/RepUserinfo.jsp
+			</result>
+					<result name="editdetail">
+						/WEB-INF/jsp/repuser/RepUseredit.jsp
+			</result>
+		</action>
+		<action name="repstats" class="rep.stats.RepStatsAction">
+			<result name="list">
+				/WEB-INF/jsp/repstats/RepStatslist.jsp
+			</result>
+			<result name="detail">
+				/WEB-INF/jsp/repstats/RepStatsinfo.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/repstats/RepStatsedit.jsp
+			</result>
+		</action>
+		<action name="repdata" class="rep.data.RepDataAction">
+			<result name="list">
+				/WEB-INF/jsp/repdata/RepDatalist.jsp
+			</result>
+			<result name="detail">
+				/WEB-INF/jsp/repdata/RepDatainfo.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/repdata/RepDataedit.jsp
+			</result>
+		</action>
+	</package>
+</struts>
