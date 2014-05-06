@@ -45,6 +45,8 @@ public class MyUserAction extends BaseAction {
 	public String doAdd() {
 		try {
 			password = Coder.toMyCoder(password);
+			if(orderId==null)
+				orderId = 0;
 			MyUserImpl myuserImpl = new MyUserImpl(userName, password, loginId,
 					orgId, email, phone, mobile, userType, address, orderId);
 			pMgr.createMyUser(myuserImpl);
@@ -52,6 +54,7 @@ public class MyUserAction extends BaseAction {
 			log.error(e);
 			return ajaxForwardError(e.getLocalizedMessage());
 		} catch (Exception e) {
+			e.printStackTrace();
 			log.error(e);
 			return ajaxForwardError(e.getLocalizedMessage());
 		}
