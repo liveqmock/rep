@@ -10,7 +10,7 @@
 						<label>
 							用户id:
 						</label>
-									<input name="orderNo" class="textInput required" size="30" type="text"   />
+									<input name="userId" class="textInput required" size="30" type="text"   />
 					</div>
 					 <div class="unit">
 						<label>
@@ -59,6 +59,36 @@
 							联系方式:
 						</label>
 									<input name="phone" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
+							密码:
+						</label>
+									<input name="password" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
+							额外参数1:
+						</label>
+									<input name="param1" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
+							纬度:
+						</label>
+									<input name="lng_north" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
+							经度:
+						</label>
+									<input name="lat_east" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
+							额外参数2:
+						</label>
+									<input name="param2" class="textInput " size="30" type="text"   />
 					</div>
 		</div>
 		<div class="formBar">

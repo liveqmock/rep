@@ -57,6 +57,12 @@
 					</div>
 					 <div class="unit">
 						<label>
+							统计用户:
+						</label>
+									<input name="userId" class="textInput  " readonly='true' size="30" type="text"  value="<s:property value="vo.userId"/>" />
+					</div>
+					 <div class="unit">
+						<label>
 							额外参数1:
 						</label>
 									<input name="param1" class="textInput  " readonly='true' size="30" type="text"  value="<s:property value="vo.param1"/>" />

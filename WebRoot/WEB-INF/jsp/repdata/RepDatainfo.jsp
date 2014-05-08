@@ -51,6 +51,12 @@
 					</div>
 					 <div class="unit">
 						<label>
+							统计用户:
+						</label>
+									<input name="userId" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
 							额外参数1:
 						</label>
 									<input name="param1" class="textInput " size="30" type="text"   />

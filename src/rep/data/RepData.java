@@ -43,6 +43,10 @@ public interface RepData extends BusinessObject {
  	 */
  	public  int   getOldNum();
  	/**
+ 	 * 获取统计用户的属性值.
+ 	 */
+ 	public  int   getUserId();
+ 	/**
  	 * 获取额外参数1的属性值.
  	 */
  	public  String   getParam1();

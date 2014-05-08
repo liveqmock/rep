@@ -95,9 +95,9 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
-					case ORDERNO:
+					case USERID:
 						sb.append(count == 0 ? " where" : " and").append(
-								"  repuser.orderNo = ? ");
+								"  repuser.userId = ? ");
 						argList.add(entry.getValue());
 						count++;
 					break;
@@ -149,6 +149,36 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
+					case PASSWORD:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.password = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
+					case PARAM1:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.param1 = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
+					case LNG_NORTH:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.lng_north = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
+					case LAT_EAST:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.lat_east = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
+					case PARAM2:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.param2 = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
 				default:
 					break;
 				}
@@ -167,8 +197,8 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 			case SNO:
 				 sb.append(" order by repuser.sno");
 			break;
-			case ORDERNO:
-				 sb.append(" order by repuser.orderNo");
+			case USERID:
+				 sb.append(" order by repuser.userId");
 			break;
 			case BRANDNAME:
 				 sb.append(" order by repuser.brandName");
@@ -193,6 +223,21 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 			break;
 			case PHONE:
 				 sb.append(" order by repuser.phone");
+			break;
+			case PASSWORD:
+				 sb.append(" order by repuser.password");
+			break;
+			case PARAM1:
+				 sb.append(" order by repuser.param1");
+			break;
+			case LNG_NORTH:
+				 sb.append(" order by repuser.lng_north");
+			break;
+			case LAT_EAST:
+				 sb.append(" order by repuser.lat_east");
+			break;
+			case PARAM2:
+				 sb.append(" order by repuser.param2");
 			break;
 			default:
 				break;

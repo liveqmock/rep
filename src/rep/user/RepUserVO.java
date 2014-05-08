@@ -17,9 +17,9 @@ public class RepUserVO implements Serializable {
 
 	}
 	
-	public RepUserVO( int sno , int orderNo , String brandName , String brandType , double area , String address , double masterPrice , int workNum , int weekendNum , String phone ) {
+	public RepUserVO( int sno , String userId , String brandName , String brandType , double area , String address , double masterPrice , int workNum , int weekendNum , String phone , String password , String param1 , String lng_north , String lat_east , String param2 ) {
 		 this.sno = sno;
-		 this.orderNo = orderNo;
+		 this.userId = userId;
 		 this.brandName = brandName;
 		 this.brandType = brandType;
 		 this.area = area;
@@ -28,10 +28,15 @@ public class RepUserVO implements Serializable {
 		 this.workNum = workNum;
 		 this.weekendNum = weekendNum;
 		 this.phone = phone;
+		 this.password = password;
+		 this.param1 = param1;
+		 this.lng_north = lng_north;
+		 this.lat_east = lat_east;
+		 this.param2 = param2;
 	}
 	
-	public RepUserVO(int orderNo ,String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,int weekendNum ,String phone ) {
-			 this.orderNo = orderNo;
+	public RepUserVO(String userId ,String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,int weekendNum ,String phone ,String password ,String param1 ,String lng_north ,String lat_east ,String param2 ) {
+			 this.userId = userId;
 			 this.brandName = brandName;
 			 this.brandType = brandType;
 			 this.area = area;
@@ -40,6 +45,11 @@ public class RepUserVO implements Serializable {
 			 this.workNum = workNum;
 			 this.weekendNum = weekendNum;
 			 this.phone = phone;
+			 this.password = password;
+			 this.param1 = param1;
+			 this.lng_north = lng_north;
+			 this.lat_east = lat_east;
+			 this.param2 = param2;
 	}
 	 
 	private Integer sno; 
@@ -56,19 +66,19 @@ public class RepUserVO implements Serializable {
  	public void setSno(Integer sno){
  		this.sno = sno;
  	}
-	private int orderNo; 
+	private String userId; 
  	/**
  	 * 获取用户id的属性值.
  	 */
- 	public int getOrderNo(){
- 		return orderNo;
+ 	public String getUserId(){
+ 		return userId;
  	}
  	
  	/**
  	 * 设置用户id的属性值.
  	 */
- 	public void setOrderNo(int orderno){
- 		this.orderNo = orderno;
+ 	public void setUserId(String userid){
+ 		this.userId = userid;
  	}
 	private String brandName; 
  	/**
@@ -181,5 +191,75 @@ public class RepUserVO implements Serializable {
  	 */
  	public void setPhone(String phone){
  		this.phone = phone;
+ 	}
+	private String password; 
+ 	/**
+ 	 * 获取密码的属性值.
+ 	 */
+ 	public String getPassword(){
+ 		return password;
+ 	}
+ 	
+ 	/**
+ 	 * 设置密码的属性值.
+ 	 */
+ 	public void setPassword(String password){
+ 		this.password = password;
+ 	}
+	private String param1; 
+ 	/**
+ 	 * 获取额外参数1的属性值.
+ 	 */
+ 	public String getParam1(){
+ 		return param1;
+ 	}
+ 	
+ 	/**
+ 	 * 设置额外参数1的属性值.
+ 	 */
+ 	public void setParam1(String param1){
+ 		this.param1 = param1;
+ 	}
+	private String lng_north; 
+ 	/**
+ 	 * 获取纬度的属性值.
+ 	 */
+ 	public String getLng_north(){
+ 		return lng_north;
+ 	}
+ 	
+ 	/**
+ 	 * 设置纬度的属性值.
+ 	 */
+ 	public void setLng_north(String lng_north){
+ 		this.lng_north = lng_north;
+ 	}
+	private String lat_east; 
+ 	/**
+ 	 * 获取经度的属性值.
+ 	 */
+ 	public String getLat_east(){
+ 		return lat_east;
+ 	}
+ 	
+ 	/**
+ 	 * 设置经度的属性值.
+ 	 */
+ 	public void setLat_east(String lat_east){
+ 		this.lat_east = lat_east;
+ 	}
+	private String param2; 
+ 	/**
+ 	 * 获取额外参数2的属性值.
+ 	 */
+ 	public String getParam2(){
+ 		return param2;
+ 	}
+ 	
+ 	/**
+ 	 * 设置额外参数2的属性值.
+ 	 */
+ 	public void setParam2(String param2){
+ 		this.param2 = param2;
  	}
 }

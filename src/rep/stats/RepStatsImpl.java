@@ -17,12 +17,12 @@ public class RepStatsImpl implements RepStats {
 		this.repstatsVO = repstatsVO;
 	}
 
-	public RepStatsImpl( int sno , Date inputDate , double statis1 , double statis2 , double statis3 , double statis4 , double statis5 , double statis6 , String problem , String param2 , String param1 ) {
-		this.repstatsVO = new RepStatsVO( sno , inputDate , statis1 , statis2 , statis3 , statis4 , statis5 , statis6 , problem , param2 , param1 );
+	public RepStatsImpl( int sno , Date inputDate , double statis1 , double statis2 , double statis3 , double statis4 , double statis5 , double statis6 , int userId , double rpi , double rank , String problem , String param2 , String param1 ) {
+		this.repstatsVO = new RepStatsVO( sno , inputDate , statis1 , statis2 , statis3 , statis4 , statis5 , statis6 , userId , rpi , rank , problem , param2 , param1 );
 	} 
 	
-	public RepStatsImpl(Date inputDate ,double statis1 ,double statis2 ,double statis3 ,double statis4 ,double statis5 ,double statis6 ,String problem ,String param2 ,String param1 ) {
-		this.repstatsVO = new RepStatsVO(inputDate ,statis1 ,statis2 ,statis3 ,statis4 ,statis5 ,statis6 ,problem ,param2 ,param1 );
+	public RepStatsImpl(Date inputDate ,double statis1 ,double statis2 ,double statis3 ,double statis4 ,double statis5 ,double statis6 ,int userId ,double rpi ,double rank ,String problem ,String param2 ,String param1 ) {
+		this.repstatsVO = new RepStatsVO(inputDate ,statis1 ,statis2 ,statis3 ,statis4 ,statis5 ,statis6 ,userId ,rpi ,rank ,problem ,param2 ,param1 );
 	} 
 
 	public RepStatsVO getRepStatsVO() {
@@ -87,6 +87,24 @@ public class RepStatsImpl implements RepStats {
  	 */
  	public  double   getStatis6(){
  		return this.repstatsVO.getStatis6();
+ 	}
+ 	/**
+ 	 * 获取统计用户的属性值.
+ 	 */
+ 	public  Integer   getUserId(){
+ 		return this.repstatsVO.getUserId();
+ 	}
+ 	/**
+ 	 * 获取rpi数值的属性值.
+ 	 */
+ 	public  double   getRpi(){
+ 		return this.repstatsVO.getRpi();
+ 	}
+ 	/**
+ 	 * 获取排名的属性值.
+ 	 */
+ 	public  double   getRank(){
+ 		return this.repstatsVO.getRank();
  	}
  	/**
  	 * 获取问题的属性值.

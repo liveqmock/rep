@@ -95,6 +95,12 @@
 				<th width="100"    orderField="STATIS6" >
 						统计数据6 
 				</th> 
+				<th width="100"    orderField="RPI" >
+						rpi数值 
+				</th> 
+				<th width="100"    orderField="RANK" >
+						排名 
+				</th> 
 				<th width="100"    orderField="PROBLEM" >
 						问题 
 				</th> 
@@ -127,6 +133,12 @@
 					</td> 
 					<td>
 						<s:property value="statis6" />
+					</td> 
+					<td>
+						<s:property value="rpi" />
+					</td> 
+					<td>
+						<s:property value="rank" />
 					</td> 
 					<td>
 						<s:property value="problem" />

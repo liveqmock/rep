@@ -14,6 +14,9 @@
 				<property name="statis4" column="g4" type="double" />
 				<property name="statis5" column="g5" type="double" />
 				<property name="statis6" column="g6" type="double" />
+				<property name="userId" column="userid" type="int" />
+				<property name="rpi" column="rpi" type="double" />
+				<property name="rank" column="rank" type="double" />
 				<property name="problem" column="problem" type="string" />
 				<property name="param2" column="param2" type="string" />
 				<property name="param1" column="param1" type="string" />

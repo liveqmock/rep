@@ -39,7 +39,7 @@ public class RepDataAction extends BaseAction {
 
 	public String doAdd() {
 		try {
-			RepDataImpl repdataImpl = new RepDataImpl(inputDate ,dataType ,comeNum ,instrestNum ,tryNum ,buyNum ,oldNum ,param1 ,param2 ,param3 );
+			RepDataImpl repdataImpl = new RepDataImpl(inputDate ,dataType ,comeNum ,instrestNum ,tryNum ,buyNum ,oldNum ,userId ,param1 ,param2 ,param3 );
 			pMgr.createRepData(repdataImpl);
 		} catch (ValidateFieldsException e) {
 			log.error(e);
@@ -62,7 +62,7 @@ public class RepDataAction extends BaseAction {
 
 	public String doUpdate() {
 		try {
-			RepDataImpl repdataImpl = new RepDataImpl( sno , inputDate , dataType , comeNum , instrestNum , tryNum , buyNum , oldNum , param1 , param2 , param3 );
+			RepDataImpl repdataImpl = new RepDataImpl( sno , inputDate , dataType , comeNum , instrestNum , tryNum , buyNum , oldNum , userId , param1 , param2 , param3 );
 			pMgr.updateRepData(repdataImpl);
 		} catch (ValidateFieldsException e) {
 			e.printStackTrace();
@@ -72,7 +72,7 @@ public class RepDataAction extends BaseAction {
 	} 
 	
 	public enum ExportFiled {
-		  SNO("流水号"),  INPUTDATE("输入日期"),  DATATYPE("收集方式"),  COMENUM("进店人数"),  INSTRESTNUM("感兴趣人数"),  TRYNUM("试衣人数"),  BUYNUM("购买人数"),  OLDNUM("老顾客人数"),  PARAM1("额外参数1"),  PARAM2("额外参数2"),  PARAM3("额外参数3");
+		  SNO("流水号"),  INPUTDATE("输入日期"),  DATATYPE("收集方式"),  COMENUM("进店人数"),  INSTRESTNUM("感兴趣人数"),  TRYNUM("试衣人数"),  BUYNUM("购买人数"),  OLDNUM("老顾客人数"),  USERID("统计用户"),  PARAM1("额外参数1"),  PARAM2("额外参数2"),  PARAM3("额外参数3");
 		private String str;
 
 		ExportFiled(String str) {
@@ -136,6 +136,9 @@ public class RepDataAction extends BaseAction {
 					break;
 					case OLDNUM:
 						 e.setCell(filed.ordinal(), repdata.getOldNum()); 
+					break;
+					case USERID:
+						 e.setCell(filed.ordinal(), repdata.getUserId()); 
 					break;
 					case PARAM1:
 						 e.setCell(filed.ordinal(), repdata.getParam1()); 
@@ -331,6 +334,20 @@ public class RepDataAction extends BaseAction {
  	 */
  	public void setOldNum(int oldnum){
  		this.oldNum = oldnum;
+ 	}
+	private int userId; 
+ 	/**
+ 	 * 获取统计用户的属性值.
+ 	 */
+ 	public int getUserId(){
+ 		return userId;
+ 	}
+ 	
+ 	/**
+ 	 * 设置统计用户的属性值.
+ 	 */
+ 	public void setUserId(int userid){
+ 		this.userId = userid;
  	}
 	private String param1; 
  	/**

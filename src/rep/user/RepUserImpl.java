@@ -17,12 +17,12 @@ public class RepUserImpl implements RepUser {
 		this.repuserVO = repuserVO;
 	}
 
-	public RepUserImpl( int sno , int orderNo , String brandName , String brandType , double area , String address , double masterPrice , int workNum , int weekendNum , String phone ) {
-		this.repuserVO = new RepUserVO( sno , orderNo , brandName , brandType , area , address , masterPrice , workNum , weekendNum , phone );
+	public RepUserImpl( int sno , String userId , String brandName , String brandType , double area , String address , double masterPrice , int workNum , int weekendNum , String phone , String password , String param1 , String lng_north , String lat_east , String param2 ) {
+		this.repuserVO = new RepUserVO( sno , userId , brandName , brandType , area , address , masterPrice , workNum , weekendNum , phone , password , param1 , lng_north , lat_east , param2 );
 	} 
 	
-	public RepUserImpl(int orderNo ,String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,int weekendNum ,String phone ) {
-		this.repuserVO = new RepUserVO(orderNo ,brandName ,brandType ,area ,address ,masterPrice ,workNum ,weekendNum ,phone );
+	public RepUserImpl(String userId ,String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,int weekendNum ,String phone ,String password ,String param1 ,String lng_north ,String lat_east ,String param2 ) {
+		this.repuserVO = new RepUserVO(userId ,brandName ,brandType ,area ,address ,masterPrice ,workNum ,weekendNum ,phone ,password ,param1 ,lng_north ,lat_east ,param2 );
 	} 
 
 	public RepUserVO getRepUserVO() {
@@ -49,8 +49,8 @@ public class RepUserImpl implements RepUser {
  	/**
  	 * 获取用户id的属性值.
  	 */
- 	public  int   getOrderNo(){
- 		return this.repuserVO.getOrderNo();
+ 	public  String   getUserId(){
+ 		return this.repuserVO.getUserId();
  	}
  	/**
  	 * 获取品牌名称的属性值.
@@ -99,6 +99,36 @@ public class RepUserImpl implements RepUser {
  	 */
  	public  String   getPhone(){
  		return this.repuserVO.getPhone();
+ 	}
+ 	/**
+ 	 * 获取密码的属性值.
+ 	 */
+ 	public  String   getPassword(){
+ 		return this.repuserVO.getPassword();
+ 	}
+ 	/**
+ 	 * 获取额外参数1的属性值.
+ 	 */
+ 	public  String   getParam1(){
+ 		return this.repuserVO.getParam1();
+ 	}
+ 	/**
+ 	 * 获取纬度的属性值.
+ 	 */
+ 	public  String   getLng_north(){
+ 		return this.repuserVO.getLng_north();
+ 	}
+ 	/**
+ 	 * 获取经度的属性值.
+ 	 */
+ 	public  String   getLat_east(){
+ 		return this.repuserVO.getLat_east();
+ 	}
+ 	/**
+ 	 * 获取额外参数2的属性值.
+ 	 */
+ 	public  String   getParam2(){
+ 		return this.repuserVO.getParam2();
  	}
  
 }

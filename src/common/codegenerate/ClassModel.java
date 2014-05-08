@@ -9,6 +9,15 @@ import java.util.List;
  * 
  */
 public class ClassModel {
+	public String getNamespace() {
+		return namespace;
+	}
+
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+	}
+
+	private String namespace;
 	public List getAttributes() {
 		return attributes;
 	}

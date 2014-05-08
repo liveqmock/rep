@@ -17,7 +17,7 @@ public class RepDataVO implements Serializable {
 
 	}
 	
-	public RepDataVO( int sno , Date inputDate , String dataType , int comeNum , int instrestNum , int tryNum , int buyNum , int oldNum , String param1 , String param2 , String param3 ) {
+	public RepDataVO( int sno , Date inputDate , String dataType , int comeNum , int instrestNum , int tryNum , int buyNum , int oldNum , int userId , String param1 , String param2 , String param3 ) {
 		 this.sno = sno;
 		 this.inputDate = inputDate;
 		 this.dataType = dataType;
@@ -26,12 +26,13 @@ public class RepDataVO implements Serializable {
 		 this.tryNum = tryNum;
 		 this.buyNum = buyNum;
 		 this.oldNum = oldNum;
+		 this.userId = userId;
 		 this.param1 = param1;
 		 this.param2 = param2;
 		 this.param3 = param3;
 	}
 	
-	public RepDataVO(Date inputDate ,String dataType ,int comeNum ,int instrestNum ,int tryNum ,int buyNum ,int oldNum ,String param1 ,String param2 ,String param3 ) {
+	public RepDataVO(Date inputDate ,String dataType ,int comeNum ,int instrestNum ,int tryNum ,int buyNum ,int oldNum ,int userId ,String param1 ,String param2 ,String param3 ) {
 			 this.inputDate = inputDate;
 			 this.dataType = dataType;
 			 this.comeNum = comeNum;
@@ -39,6 +40,7 @@ public class RepDataVO implements Serializable {
 			 this.tryNum = tryNum;
 			 this.buyNum = buyNum;
 			 this.oldNum = oldNum;
+			 this.userId = userId;
 			 this.param1 = param1;
 			 this.param2 = param2;
 			 this.param3 = param3;
@@ -155,6 +157,20 @@ public class RepDataVO implements Serializable {
  	 */
  	public void setOldNum(int oldnum){
  		this.oldNum = oldnum;
+ 	}
+	private int userId; 
+ 	/**
+ 	 * 获取统计用户的属性值.
+ 	 */
+ 	public int getUserId(){
+ 		return userId;
+ 	}
+ 	
+ 	/**
+ 	 * 设置统计用户的属性值.
+ 	 */
+ 	public void setUserId(int userid){
+ 		this.userId = userid;
  	}
 	private String param1; 
  	/**

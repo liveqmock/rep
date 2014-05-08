@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
 <%@ include file="/include.inc.jsp"%> 
 <div class="pageContent">
-	<form method="post" action="/money/${nm}!doAdd.do"
+	<form method="post" action="${model.namespace}/${nm}!doAdd.do"
 		class="pageForm required-validate"
 		onsubmit="return myCallback(this, closeDialogWindow);">
 		<div class="pageFormContent" layoutH="57">

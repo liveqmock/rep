@@ -137,6 +137,24 @@ public class RepStatsManagerImpl extends AbstractBusinessObjectManager implement
 						argList.add(entry.getValue());
 						count++;
 					break;
+					case USERID:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repstats.userId = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
+					case RPI:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repstats.rpi = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
+					case RANK:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repstats.rank = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
 					case PROBLEM:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repstats.problem like ? ");
@@ -193,6 +211,15 @@ public class RepStatsManagerImpl extends AbstractBusinessObjectManager implement
 			break;
 			case STATIS6:
 				 sb.append(" order by repstats.statis6");
+			break;
+			case USERID:
+				 sb.append(" order by repstats.userId");
+			break;
+			case RPI:
+				 sb.append(" order by repstats.rpi");
+			break;
+			case RANK:
+				 sb.append(" order by repstats.rank");
 			break;
 			case PROBLEM:
 				 sb.append(" order by repstats.problem");

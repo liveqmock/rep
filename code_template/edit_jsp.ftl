@@ -6,7 +6,7 @@
 	${model.className} vo = (${model.className}) request.getAttribute("vo"); 
 %>
 <div class="pageContent">
-	<form method="post" action="/money/${nm}!doUpdate.do"
+	<form method="post" action="${model.namespace}/${nm}!doUpdate.do"
 		class="pageForm required-validate"
 		onsubmit="return myCallback(this, closeDialogWindow);">
 		<input type='hidden' name="${model.keyName}"

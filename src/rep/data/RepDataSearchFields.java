@@ -8,5 +8,5 @@ package rep.data;
  * http://www.iteye.com
  */
 public enum RepDataSearchFields { 
- SNO , INPUTDATE , DATATYPE , COMENUM , INSTRESTNUM , TRYNUM , BUYNUM , OLDNUM , PARAM1 , PARAM2 , PARAM3 
+ SNO , INPUTDATE , DATATYPE , COMENUM , INSTRESTNUM , TRYNUM , BUYNUM , OLDNUM , USERID , PARAM1 , PARAM2 , PARAM3 
 }

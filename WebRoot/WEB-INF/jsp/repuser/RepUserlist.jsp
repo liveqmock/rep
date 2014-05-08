@@ -77,7 +77,7 @@
 				<th width="30">
 					<input type="checkbox" group="ids" class="checkboxCtrl">
 				</th>
-				<th width="100"    orderField="ORDERNO" >
+				<th width="100"    orderField="USERID" >
 						用户id 
 				</th> 
 				<th width="120"    orderField="BRANDNAME" >
@@ -104,6 +104,12 @@
 				<th width="100"    orderField="PHONE" >
 						联系方式 
 				</th> 
+				<th width="100"    orderField="LNG_NORTH" >
+						纬度 
+				</th> 
+				<th width="100"    orderField="LAT_EAST" >
+						经度 
+				</th> 
 			</tr>
 		</thead>
 		<tbody>
@@ -114,7 +120,7 @@
 							type="checkbox">
 					</td>
 					<td>
-						<s:property value="orderNo" />
+						<s:property value="userId" />
 					</td> 
 					<td>
 						<s:property value="brandName" />
@@ -139,6 +145,12 @@
 					</td> 
 					<td>
 						<s:property value="phone" />
+					</td> 
+					<td>
+						<s:property value="lng_north" />
+					</td> 
+					<td>
+						<s:property value="lat_east" />
 					</td> 
 				</tr>
 			</s:iterator>

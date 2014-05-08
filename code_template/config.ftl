@@ -37,4 +37,4 @@ hibernate_mysql.cfg.xml
 	hbm/${nm}.hbm.xml
 </value>
 
-/money/${nm}!query.do
+${model.namespace}/${nm}!query.do

@@ -51,6 +51,24 @@
 					</div>
 					 <div class="unit">
 						<label>
+							统计用户:
+						</label>
+									<input name="userId" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
+							rpi数值:
+						</label>
+									<input name="rpi" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
+							排名:
+						</label>
+									<input name="rank" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
 							问题:
 						</label>
 									<input name="problem" class="textInput " size="30" type="text"   />

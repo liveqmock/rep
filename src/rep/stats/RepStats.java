@@ -43,6 +43,18 @@ public interface RepStats extends BusinessObject {
  	 */
  	public  double   getStatis6();
  	/**
+ 	 * 获取统计用户的属性值.
+ 	 */
+ 	public  Integer   getUserId();
+ 	/**
+ 	 * 获取rpi数值的属性值.
+ 	 */
+ 	public  double   getRpi();
+ 	/**
+ 	 * 获取排名的属性值.
+ 	 */
+ 	public  double   getRank();
+ 	/**
  	 * 获取问题的属性值.
  	 */
  	public  String   getProblem();

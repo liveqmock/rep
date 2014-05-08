@@ -1,24 +1,33 @@
-<class name="RepStats" table="rep_stats" desc="erp统计记录" package="rep.stats">
+<class name="RepUser" table="rep_user" desc="erp用户表" package="rep.user"
+	namesapce="/rep">
 	<id name="sno" column="id" type="int" desc="流水号" width="10" visible="false"
 		noedit="true" />
-	<property name="inputDate" column="indate" type="date" desc="输入日期" query="true"
+	<property name="userId" column="userid" type="string" desc="用户id"
 		width="100" notnull="true" />
-	<property name="statis1" column="g1" type="double" width="100"
-		desc="统计数据1"  />
-	<property name="statis2" column="g2" type="double" desc="统计数据2"
-		width="100" />
-	<property name="statis3" column="g3" type="double" desc="统计数据3"
-		width="100" />
-	<property name="statis4" column="g4" type="double" desc="统计数据4"
-		width="100" />
-	<property name="statis5" column="g5" type="double" width="100"
-		desc="统计数据5" />
-	<property name="statis6" column="g6" type="double" desc="统计数据6"
-		width="100" />
-	<property name="problem" column="problem" type="string" width="100" query="true" querylike='true'
-		desc="问题" />
-	<property name="param2" column="param2" type="string" width="0"
-		noedit="true" visible="false" desc="额外参数2" />
-	<property name="param1" column="param1" type="string" width="0"
-		noedit="true" visible="false" desc="额外参数1" />
+	<property name="brandName" column="brandname" type="string"
+		querylike='true' width="120" desc="品牌名称" query="true" />
+	<property name="brandType" column="brandtype" type="string"
+		desc="品类" width="100" />
+	<property name="area" column="area" type="double" desc="营业面积"
+		width="80" />
+	<property name="address" column="address" type="string" desc="店铺地址"
+		querylike='true' query="true" width="250" />
+	<property name="masterPrice" column="price" type="double"
+		width="100" desc="主力单价" />
+	<property name="workNum" column="people_flownum_work" type="int"
+		desc="人流量-工作日" width="60" />
+	<property name="weekendNum" column="people_flownum_weekend"
+		type="int" width="60" desc="人流量-周末" />
+	<property name="phone" column="phone" type="string" width="100"
+		query="true" desc="联系方式" />
+	<property name="password" column="password" type="string" visible="false"  noedit="true" 
+		width="100" desc="密码" />
+	<property name="param1" column="param1" type="string" width="100"
+		visible="false" desc="额外参数1" />
+	<property name="lng_north" column="lng_north" type="string"
+		width="100" desc="纬度" />
+	<property name="lat_east" column="lat_east" type="string"
+		width="100" desc="经度" />
+	<property name="param2" column="param2" type="string" width="100"
+		visible="false" desc="额外参数2" />
 </class>

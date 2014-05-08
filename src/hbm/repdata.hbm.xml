@@ -14,6 +14,7 @@
 				<property name="tryNum" column="try_num" type="int" />
 				<property name="buyNum" column="buy_num" type="int" />
 				<property name="oldNum" column="old_num" type="int" />
+				<property name="userId" column="userid" type="int" />
 				<property name="param1" column="param1" type="string" />
 				<property name="param2" column="param2" type="string" />
 				<property name="param3" column="param3" type="string" />

@@ -39,7 +39,7 @@ public class RepUserAction extends BaseAction {
 
 	public String doAdd() {
 		try {
-			RepUserImpl repuserImpl = new RepUserImpl(orderNo ,brandName ,brandType ,area ,address ,masterPrice ,workNum ,weekendNum ,phone );
+			RepUserImpl repuserImpl = new RepUserImpl(userId ,brandName ,brandType ,area ,address ,masterPrice ,workNum ,weekendNum ,phone ,password ,param1 ,lng_north ,lat_east ,param2 );
 			pMgr.createRepUser(repuserImpl);
 		} catch (ValidateFieldsException e) {
 			log.error(e);
@@ -62,7 +62,7 @@ public class RepUserAction extends BaseAction {
 
 	public String doUpdate() {
 		try {
-			RepUserImpl repuserImpl = new RepUserImpl( sno , orderNo , brandName , brandType , area , address , masterPrice , workNum , weekendNum , phone );
+			RepUserImpl repuserImpl = new RepUserImpl( sno , userId , brandName , brandType , area , address , masterPrice , workNum , weekendNum , phone , password , param1 , lng_north , lat_east , param2 );
 			pMgr.updateRepUser(repuserImpl);
 		} catch (ValidateFieldsException e) {
 			e.printStackTrace();
@@ -72,7 +72,7 @@ public class RepUserAction extends BaseAction {
 	} 
 	
 	public enum ExportFiled {
-		  SNO("流水号"),  ORDERNO("用户id"),  BRANDNAME("品牌名称"),  BRANDTYPE("品类"),  AREA("营业面积"),  ADDRESS("店铺地址"),  MASTERPRICE("主力单价"),  WORKNUM("人流量-工作日"),  WEEKENDNUM("人流量-周末"),  PHONE("联系方式");
+		  SNO("流水号"),  USERID("用户id"),  BRANDNAME("品牌名称"),  BRANDTYPE("品类"),  AREA("营业面积"),  ADDRESS("店铺地址"),  MASTERPRICE("主力单价"),  WORKNUM("人流量-工作日"),  WEEKENDNUM("人流量-周末"),  PHONE("联系方式"),  PASSWORD("密码"),  PARAM1("额外参数1"),  LNG_NORTH("纬度"),  LAT_EAST("经度"),  PARAM2("额外参数2");
 		private String str;
 
 		ExportFiled(String str) {
@@ -116,8 +116,8 @@ public class RepUserAction extends BaseAction {
 					case SNO:
 						 e.setCell(filed.ordinal(), repuser.getSno()); 
 					break;
-					case ORDERNO:
-						 e.setCell(filed.ordinal(), repuser.getOrderNo()); 
+					case USERID:
+						 e.setCell(filed.ordinal(), repuser.getUserId()); 
 					break;
 					case BRANDNAME:
 						 e.setCell(filed.ordinal(), repuser.getBrandName()); 
@@ -142,6 +142,21 @@ public class RepUserAction extends BaseAction {
 					break;
 					case PHONE:
 						 e.setCell(filed.ordinal(), repuser.getPhone()); 
+					break;
+					case PASSWORD:
+						 e.setCell(filed.ordinal(), repuser.getPassword()); 
+					break;
+					case PARAM1:
+						 e.setCell(filed.ordinal(), repuser.getParam1()); 
+					break;
+					case LNG_NORTH:
+						 e.setCell(filed.ordinal(), repuser.getLng_north()); 
+					break;
+					case LAT_EAST:
+						 e.setCell(filed.ordinal(), repuser.getLat_east()); 
+					break;
+					case PARAM2:
+						 e.setCell(filed.ordinal(), repuser.getParam2()); 
 					break;
 				default:
 					break;
@@ -235,19 +250,19 @@ public class RepUserAction extends BaseAction {
  	public void setSno(Integer sno){
  		this.sno = sno;
  	}
-	private int orderNo; 
+	private String userId; 
  	/**
  	 * 获取用户id的属性值.
  	 */
- 	public int getOrderNo(){
- 		return orderNo;
+ 	public String getUserId(){
+ 		return userId;
  	}
  	
  	/**
  	 * 设置用户id的属性值.
  	 */
- 	public void setOrderNo(int orderno){
- 		this.orderNo = orderno;
+ 	public void setUserId(String userid){
+ 		this.userId = userid;
  	}
 	private String brandName; 
  	/**
@@ -360,5 +375,75 @@ public class RepUserAction extends BaseAction {
  	 */
  	public void setPhone(String phone){
  		this.phone = phone;
+ 	}
+	private String password; 
+ 	/**
+ 	 * 获取密码的属性值.
+ 	 */
+ 	public String getPassword(){
+ 		return password;
+ 	}
+ 	
+ 	/**
+ 	 * 设置密码的属性值.
+ 	 */
+ 	public void setPassword(String password){
+ 		this.password = password;
+ 	}
+	private String param1; 
+ 	/**
+ 	 * 获取额外参数1的属性值.
+ 	 */
+ 	public String getParam1(){
+ 		return param1;
+ 	}
+ 	
+ 	/**
+ 	 * 设置额外参数1的属性值.
+ 	 */
+ 	public void setParam1(String param1){
+ 		this.param1 = param1;
+ 	}
+	private String lng_north; 
+ 	/**
+ 	 * 获取纬度的属性值.
+ 	 */
+ 	public String getLng_north(){
+ 		return lng_north;
+ 	}
+ 	
+ 	/**
+ 	 * 设置纬度的属性值.
+ 	 */
+ 	public void setLng_north(String lng_north){
+ 		this.lng_north = lng_north;
+ 	}
+	private String lat_east; 
+ 	/**
+ 	 * 获取经度的属性值.
+ 	 */
+ 	public String getLat_east(){
+ 		return lat_east;
+ 	}
+ 	
+ 	/**
+ 	 * 设置经度的属性值.
+ 	 */
+ 	public void setLat_east(String lat_east){
+ 		this.lat_east = lat_east;
+ 	}
+	private String param2; 
+ 	/**
+ 	 * 获取额外参数2的属性值.
+ 	 */
+ 	public String getParam2(){
+ 		return param2;
+ 	}
+ 	
+ 	/**
+ 	 * 设置额外参数2的属性值.
+ 	 */
+ 	public void setParam2(String param2){
+ 		this.param2 = param2;
  	}
 }

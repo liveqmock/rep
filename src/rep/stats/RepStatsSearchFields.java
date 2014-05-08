@@ -8,5 +8,5 @@ package rep.stats;
  * http://www.iteye.com
  */
 public enum RepStatsSearchFields { 
- SNO , INPUTDATE , STATIS1 , STATIS2 , STATIS3 , STATIS4 , STATIS5 , STATIS6 , PROBLEM , PARAM2 , PARAM1 
+ SNO , INPUTDATE , STATIS1 , STATIS2 , STATIS3 , STATIS4 , STATIS5 , STATIS6 , USERID , RPI , RANK , PROBLEM , PARAM2 , PARAM1 
 }

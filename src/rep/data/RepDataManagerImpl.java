@@ -137,6 +137,12 @@ public class RepDataManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
+					case USERID:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repdata.userId = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
 					case PARAM1:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repdata.param1 = ? ");
@@ -193,6 +199,9 @@ public class RepDataManagerImpl extends AbstractBusinessObjectManager implements
 			break;
 			case OLDNUM:
 				 sb.append(" order by repdata.oldNum");
+			break;
+			case USERID:
+				 sb.append(" order by repdata.userId");
 			break;
 			case PARAM1:
 				 sb.append(" order by repdata.param1");

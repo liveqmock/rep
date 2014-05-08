@@ -22,6 +22,7 @@ public class ModelParse {
 	private String className;
 	private String classDesc;
 	private String packageName;
+	private String namespaceName;
 
 	public String getFileName() {
 		return fileName;
@@ -37,6 +38,7 @@ public class ModelParse {
 		Node list = doc.getElementsByTagName("class").item(0);
 		table = DomUtil.getAttribute(list, "table");
 		packageName = DomUtil.getAttribute(list, "package");
+		namespaceName= DomUtil.getAttribute(list, "namesapce");
 		className = DomUtil.getAttribute(list, "name");
 		classDesc = DomUtil.getAttribute(list, "desc");
 		NodeList children = list.getChildNodes();
@@ -88,6 +90,7 @@ public class ModelParse {
 		}
 		model.setTable(table);
 		model.setClassName(className);
+		model.setNamespace(namespaceName);
 		model.setPackageName(packageName);
 		model.setClassDesc(classDesc);
 		model.setAttributes(attributes);

@@ -17,7 +17,7 @@ public interface RepUser extends BusinessObject {
  	/**
  	 * 获取用户id的属性值.
  	 */
- 	public  int   getOrderNo();
+ 	public  String   getUserId();
  	/**
  	 * 获取品牌名称的属性值.
  	 */
@@ -50,4 +50,24 @@ public interface RepUser extends BusinessObject {
  	 * 获取联系方式的属性值.
  	 */
  	public  String   getPhone();
+ 	/**
+ 	 * 获取密码的属性值.
+ 	 */
+ 	public  String   getPassword();
+ 	/**
+ 	 * 获取额外参数1的属性值.
+ 	 */
+ 	public  String   getParam1();
+ 	/**
+ 	 * 获取纬度的属性值.
+ 	 */
+ 	public  String   getLng_north();
+ 	/**
+ 	 * 获取经度的属性值.
+ 	 */
+ 	public  String   getLat_east();
+ 	/**
+ 	 * 获取额外参数2的属性值.
+ 	 */
+ 	public  String   getParam2();
 }

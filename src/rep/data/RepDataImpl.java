@@ -17,12 +17,12 @@ public class RepDataImpl implements RepData {
 		this.repdataVO = repdataVO;
 	}
 
-	public RepDataImpl( int sno , Date inputDate , String dataType , int comeNum , int instrestNum , int tryNum , int buyNum , int oldNum , String param1 , String param2 , String param3 ) {
-		this.repdataVO = new RepDataVO( sno , inputDate , dataType , comeNum , instrestNum , tryNum , buyNum , oldNum , param1 , param2 , param3 );
+	public RepDataImpl( int sno , Date inputDate , String dataType , int comeNum , int instrestNum , int tryNum , int buyNum , int oldNum , int userId , String param1 , String param2 , String param3 ) {
+		this.repdataVO = new RepDataVO( sno , inputDate , dataType , comeNum , instrestNum , tryNum , buyNum , oldNum , userId , param1 , param2 , param3 );
 	} 
 	
-	public RepDataImpl(Date inputDate ,String dataType ,int comeNum ,int instrestNum ,int tryNum ,int buyNum ,int oldNum ,String param1 ,String param2 ,String param3 ) {
-		this.repdataVO = new RepDataVO(inputDate ,dataType ,comeNum ,instrestNum ,tryNum ,buyNum ,oldNum ,param1 ,param2 ,param3 );
+	public RepDataImpl(Date inputDate ,String dataType ,int comeNum ,int instrestNum ,int tryNum ,int buyNum ,int oldNum ,int userId ,String param1 ,String param2 ,String param3 ) {
+		this.repdataVO = new RepDataVO(inputDate ,dataType ,comeNum ,instrestNum ,tryNum ,buyNum ,oldNum ,userId ,param1 ,param2 ,param3 );
 	} 
 
 	public RepDataVO getRepDataVO() {
@@ -87,6 +87,12 @@ public class RepDataImpl implements RepData {
  	 */
  	public  int   getOldNum(){
  		return this.repdataVO.getOldNum();
+ 	}
+ 	/**
+ 	 * 获取统计用户的属性值.
+ 	 */
+ 	public  int   getUserId(){
+ 		return this.repdataVO.getUserId();
  	}
  	/**
  	 * 获取额外参数1的属性值.
