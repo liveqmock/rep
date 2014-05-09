@@ -11,8 +11,8 @@ public class Code {
 	public static void main(String[] agrgs) {
 		// final String file =
 		// "E:\\github\\dwz_money\\code_template\\datamodle.xml";
-		//String Root = "D:\\github\\dwz_money";
-		String Root = "F:\\github2\\rep";
+		String Root = "D:\\github\\rep";
+		//String Root = "F:\\github2\\rep";
 		final String file = Root + "\\code_template\\datamodle.xml";
 		String javaRoot = Root + "\\src";
 		String jspRoot = Root + "\\WebRoot\\WEB-INF\\jsp";
