@@ -137,6 +137,12 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
+					case WORKTIME:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.workTime = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
 					case WEEKENDNUM:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repuser.weekendNum = ? ");
@@ -217,6 +223,9 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 			break;
 			case WORKNUM:
 				 sb.append(" order by repuser.workNum");
+			break;
+			case WORKTIME:
+				 sb.append(" order by repuser.workTime");
 			break;
 			case WEEKENDNUM:
 				 sb.append(" order by repuser.weekendNum");

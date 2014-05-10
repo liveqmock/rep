@@ -14,6 +14,7 @@
 				<property name="address" column="address" type="string" />
 				<property name="masterPrice" column="price" type="double" />
 				<property name="workNum" column="people_flownum_work" type="int" />
+				<property name="workTime" column="work_time" type="string" />
 				<property name="weekendNum" column="people_flownum_weekend" type="int" />
 				<property name="phone" column="phone" type="string" />
 				<property name="password" column="password" type="string" />

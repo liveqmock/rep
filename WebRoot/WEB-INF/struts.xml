@@ -8,4 +8,5 @@
 	<include file="resource/struts-test.xml" />
 	<include file="resource/struts-money.xml" /> 
 	<include file="resource/struts-rep.xml" />
+	<include file="resource/struts-services.xml" />
 </struts>

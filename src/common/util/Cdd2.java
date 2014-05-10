@@ -8,16 +8,26 @@ import java.util.regex.Pattern;
 
 /**
  * 类似base64的加密算法
+ * 
  * @author renjie120 419723443@qq.com
- *
+ * 
  */
 public class Cdd2 {
-	static int w;//3-编码时数组除以3余下的数
+	static int w;// 3-编码时数组除以3余下的数
 
 	static char[] source;
-	
-	public static String DJPHttp="qC8lS#^P2s%QS@v&pM!QRsuKOszJ2s4dRb8dSYz&pN4nUM!l8cdIpizrSsLn9N7z3i3Q3ijs0b4dScdXR#lm4iOm5#BQ4i$t5iOQ3ik=";
-	public static String  KEY= "B!@#$%DCj0123456789ikLNMOpqRSTUVWXYZ&dcb^*()IJKPQonmlrstuvwxyz+/=";
+
+	private static class SingletonHolder {
+		public final static Cdd2 instance = new Cdd2();
+	}
+
+	public static Cdd2 getInstance() {
+		return SingletonHolder.instance;
+	}
+
+	public static String DJPHttp = "qC8lS#^P2s%QS@v&pM!QRsuKOszJ2s4dRb8dSYz&pN4nUM!l8cdIpizrSsLn9N7z3i3Q3ijs0b4dScdXR#lm4iOm5#BQ4i$t5iOQ3ik=";
+	public static String KEY = "B!@#$%DCj0123456789ikLNMOpqRSTUVWXYZ&dcb^*()IJKPQonmlrstuvwxyz+/=";
+	public static String KEY2 = "B!@#$%DCj012pqRSTcb^*()IJKtuWlUVL&d678PXYMOsZ9nmQo45Nr3ikvwxyz+/=";
 
 	private static char[] strToChars(String str) {
 		try {
@@ -41,32 +51,41 @@ public class Cdd2 {
 
 	/**
 	 * 加密字符串。
-	 * @param str 密钥。
+	 * 
+	 * @param str
+	 *            密钥。
 	 * @param 密码
 	 * @return
 	 */
-	public String strToBase64Str(String str,String mima) {
+	public String strToBase64Str(String str, String mima) {
 		char[] oldStrbyte = Cdd2.strToChars(str);
-		char[] ansChars = toAsBase64String(oldStrbyte,mima);
+		char[] ansChars = toAsBase64String(oldStrbyte, mima);
 		return new String(ansChars);
 	}
 
-	public static void main(String[] a){
-		Cdd2 c =new Cdd2();
+	public static void main(String[] a) {
+		Cdd2 c = new Cdd2();
 		List list = new ArrayList();
 		list.add(1);
 		list.add("c");
-		list.add((int)'a');
-		String mima = c.strToBase64Str("http://app.deppon.com/center/decryptFile?userId=130126&serial=356380051796015","B!@#$%DCj0123456789ikLNMOpqRSTUVWXYZ&dcb^*()IJKPQonmlrstuvwxyz+/=");
-		System.out.println(mima); 
+		list.add((int) 'a');
+		String mima = c
+				.strToBase64Str(
+						"http://app.deppon.com/center/decryptFile?userId=130126&serial=356380051796015",
+						"B!@#$%DCj0123456789ikLNMOpqRSTUVWXYZ&dcb^*()IJKPQonmlrstuvwxyz+/=");
+		System.out.println(mima);
 		try {
-			System.out.println(c.strFromAsBase64Str(mima, "B!@#$%DCj0123456789ikLNMOpqRSTUVWXYZ&dcb^*()IJKPQonmlrstuvwxyz+/="));
+			System.out
+					.println(c
+							.strFromAsBase64Str(mima,
+									"B!@#$%DCj0123456789ikLNMOpqRSTUVWXYZ&dcb^*()IJKPQonmlrstuvwxyz+/="));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
 	}
-	private static char[] toAsBase64String(char[] input,String mima) {
+
+	private static char[] toAsBase64String(char[] input, String mima) {
 		char[] Base64Code = Cdd2.strToChars(mima);
 		source = input;
 		int messageLen = input.length;
@@ -81,7 +100,7 @@ public class Cdd2 {
 		for (int x = 0; x < messageLen2; x++) {
 			if (x < messageLen) {
 				before[x] = source[x];
-			} else {//将补上的数组设置为0
+			} else {// 将补上的数组设置为0
 				before[x] = 0;
 			}
 		}
@@ -103,9 +122,9 @@ public class Cdd2 {
 			if (instr[2] != 0) {
 				buffer[3 + i * 4] = (byte) (instr[2] & 0x3f);
 			} else {
-				buffer[3 + i * 4] = 64;//这一步必不可少！！！这样的话，虽然叫Base64，
+				buffer[3 + i * 4] = 64;// 这一步必不可少！！！这样的话，虽然叫Base64，
 			}
-			//有64个有用的代码，实际要用的是65个！！！！，多个‘=’，以后要把他去掉的！！
+			// 有64个有用的代码，实际要用的是65个！！！！，多个‘=’，以后要把他去掉的！！
 		}
 		for (int x = 0; x < page * 4; x++) {
 			result[x] = Base64Code[buffer[x]];
@@ -115,19 +134,21 @@ public class Cdd2 {
 
 	/**
 	 * 解密字符串。
-	 * @param str 加密串。
+	 * 
+	 * @param str
+	 *            加密串。
 	 * @return
 	 * @throws Exception
 	 */
-	public String strFromAsBase64Str(String str,String mima) throws Exception {
-		byte[] ansBytes = fromAsBase64String(str,mima);
+	public String strFromAsBase64Str(String str, String mima) throws Exception {
+		byte[] ansBytes = fromAsBase64String(str, mima);
 		String ans = new String(ansBytes, System.getProperty("file.encoding"));
 		return ans;
-	} 
-	 
+	}
 
-	private static byte[] fromAsBase64String(String Message1,String mima) throws Exception {
-		int q = 0;//用来统计有多少个转义字符！
+	private static byte[] fromAsBase64String(String Message1, String mima)
+			throws Exception {
+		int q = 0;// 用来统计有多少个转义字符！
 		for (int a = 0; a < Message1.length(); a++) {
 			byte x = (byte) Message1.charAt(a);
 			if (x == 10 || x == 13 || x == 9 || x == 32) {
@@ -142,11 +163,11 @@ public class Cdd2 {
 				d++;
 				continue;
 			} else {
-				/*AEFGH*/
+				/* AEFGH */
 				message[a - d] = Message1.charAt(a);
 			}
 		}
-		String Message = new String(message);//问问老师！！！！！！！！！！！！
+		String Message = new String(message);// 问问老师！！！！！！！！！！！！
 		String regEx = "^[BCDI-Zbcdi-z0-9^&*()!@#$%/+=]*$";
 		Pattern p = Pattern.compile(regEx);
 		Matcher m = p.matcher(Message);
@@ -164,7 +185,7 @@ public class Cdd2 {
 		int page = Message.length() / 4;
 		byte[] buffer = new byte[page * 3];
 		int length;
-		int temp = 0;//用来看最后的3个字符中有多少个“=”
+		int temp = 0;// 用来看最后的3个字符中有多少个“=”
 		for (int x = 0; x < 2; x++) {
 			if (message[Message.length() - x - 1] == '=') {
 				temp++;
@@ -172,9 +193,9 @@ public class Cdd2 {
 		}
 		length = buffer.length - temp;
 		byte[] newStr = new byte[length];
-		byte[] outstr = new byte[3 * page];//用来将outMessage的内容全部复制到这里好把他传到外面去.
+		byte[] outstr = new byte[3 * page];// 用来将outMessage的内容全部复制到这里好把他传到外面去.
 		for (int i = 0; i < page; i++) {
-			byte[] instr = new byte[4];//下面的是用来看base64编码的对应的数是0到64的哪一个
+			byte[] instr = new byte[4];// 下面的是用来看base64编码的对应的数是0到64的哪一个
 			instr[0] = (byte) Base64Code.indexOf(message[i * 4]);
 			instr[1] = (byte) Base64Code.indexOf(message[i * 4 + 1]);
 			instr[2] = (byte) Base64Code.indexOf(message[i * 4 + 2]);

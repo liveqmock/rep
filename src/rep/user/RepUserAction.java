@@ -39,7 +39,7 @@ public class RepUserAction extends BaseAction {
 
 	public String doAdd() {
 		try {
-			RepUserImpl repuserImpl = new RepUserImpl(userId ,brandName ,brandType ,area ,address ,masterPrice ,workNum ,weekendNum ,phone ,password ,param1 ,lng_north ,lat_east ,param2 );
+			RepUserImpl repuserImpl = new RepUserImpl(userId ,brandName ,brandType ,area ,address ,masterPrice ,workNum ,workTime ,weekendNum ,phone ,password ,param1 ,lng_north ,lat_east ,param2 );
 			pMgr.createRepUser(repuserImpl);
 		} catch (ValidateFieldsException e) {
 			log.error(e);
@@ -62,7 +62,7 @@ public class RepUserAction extends BaseAction {
 
 	public String doUpdate() {
 		try {
-			RepUserImpl repuserImpl = new RepUserImpl( sno , userId , brandName , brandType , area , address , masterPrice , workNum , weekendNum , phone , password , param1 , lng_north , lat_east , param2 );
+			RepUserImpl repuserImpl = new RepUserImpl( sno , userId , brandName , brandType , area , address , masterPrice , workNum , workTime , weekendNum , phone , password , param1 , lng_north , lat_east , param2 );
 			pMgr.updateRepUser(repuserImpl);
 		} catch (ValidateFieldsException e) {
 			e.printStackTrace();
@@ -72,7 +72,7 @@ public class RepUserAction extends BaseAction {
 	} 
 	
 	public enum ExportFiled {
-		  SNO("流水号"),  USERID("用户id"),  BRANDNAME("品牌名称"),  BRANDTYPE("品类"),  AREA("营业面积"),  ADDRESS("店铺地址"),  MASTERPRICE("主力单价"),  WORKNUM("人流量-工作日"),  WEEKENDNUM("人流量-周末"),  PHONE("联系方式"),  PASSWORD("密码"),  PARAM1("额外参数1"),  LNG_NORTH("纬度"),  LAT_EAST("经度"),  PARAM2("额外参数2");
+		  SNO("流水号"),  USERID("用户id"),  BRANDNAME("品牌名称"),  BRANDTYPE("品类"),  AREA("营业面积"),  ADDRESS("店铺地址"),  MASTERPRICE("主力单价"),  WORKNUM("人流量-工作日"),  WORKTIME("营业时间"),  WEEKENDNUM("人流量-周末"),  PHONE("联系方式"),  PASSWORD("密码"),  PARAM1("额外参数1"),  LNG_NORTH("纬度"),  LAT_EAST("经度"),  PARAM2("额外参数2");
 		private String str;
 
 		ExportFiled(String str) {
@@ -136,6 +136,9 @@ public class RepUserAction extends BaseAction {
 					break;
 					case WORKNUM:
 						 e.setCell(filed.ordinal(), repuser.getWorkNum()); 
+					break;
+					case WORKTIME:
+						 e.setCell(filed.ordinal(), repuser.getWorkTime()); 
 					break;
 					case WEEKENDNUM:
 						 e.setCell(filed.ordinal(), repuser.getWeekendNum()); 
@@ -347,6 +350,20 @@ public class RepUserAction extends BaseAction {
  	 */
  	public void setWorkNum(int worknum){
  		this.workNum = worknum;
+ 	}
+	private String workTime; 
+ 	/**
+ 	 * 获取营业时间的属性值.
+ 	 */
+ 	public String getWorkTime(){
+ 		return workTime;
+ 	}
+ 	
+ 	/**
+ 	 * 设置营业时间的属性值.
+ 	 */
+ 	public void setWorkTime(String worktime){
+ 		this.workTime = worktime;
  	}
 	private int weekendNum; 
  	/**

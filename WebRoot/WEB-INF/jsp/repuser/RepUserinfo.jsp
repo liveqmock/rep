@@ -50,6 +50,12 @@
 					</div>
 					 <div class="unit">
 						<label>
+							营业时间:
+						</label>
+									<input name="workTime" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
 							人流量-周末:
 						</label>
 									<input name="weekendNum" class="textInput " size="30" type="text"   />

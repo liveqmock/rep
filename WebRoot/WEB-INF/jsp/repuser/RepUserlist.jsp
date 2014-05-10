@@ -98,6 +98,9 @@
 				<th width="60"    orderField="WORKNUM" >
 						人流量-工作日 
 				</th> 
+				<th width="100"    orderField="WORKTIME" >
+						营业时间 
+				</th> 
 				<th width="60"    orderField="WEEKENDNUM" >
 						人流量-周末 
 				</th> 
@@ -139,6 +142,9 @@
 					</td> 
 					<td>
 						<s:property value="workNum" />
+					</td> 
+					<td>
+						<s:property value="workTime" />
 					</td> 
 					<td>
 						<s:property value="weekendNum" />

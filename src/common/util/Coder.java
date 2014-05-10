@@ -1,6 +1,5 @@
 ﻿package common.util;
 
-import java.math.BigInteger;
 import java.security.MessageDigest;
 
 import javax.crypto.KeyGenerator;
@@ -9,6 +8,7 @@ import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  * 单向加密算法集合.
@@ -65,11 +65,12 @@ public abstract class Coder {
 	 * @throws Exception
 	 */
 	public static String toMyCoder(String key) throws Exception {
-		byte[] inputData = key.getBytes();
-		// 先进性base64加密
-		String ans = Coder.encryptBASE64(inputData);
-		// 在进行个性化的加密.
-		ans = PassWord.encode(ans);
+		String ans = Cdd2.getInstance().strToBase64Str(key, Cdd2.KEY2);
+//		byte[] inputData = key.getBytes();
+//		// 先进性base64加密
+//		String ans = Coder.encryptBASE64(inputData);
+//		// 在进行个性化的加密.
+//		ans = PassWord.encode(ans);
 		return ans;
 	}
 
@@ -81,21 +82,34 @@ public abstract class Coder {
 	 * @throws Exception
 	 */
 	public static String fromMyCoder(String key) {
-		key = PassWord.decode(key);
-		// 再进行base64解密
-		byte[] output;
-		String outputStr = "";
+//		key = PassWord.decode(key);
+//		// 再进行base64解密
+//		byte[] output;
+//		String outputStr = "";
+//		try {
+//			output = Coder.decryptBASE64(key);
+//			outputStr = new String(output);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		String outputStr;
 		try {
-			output = Coder.decryptBASE64(key);
-			outputStr = new String(output);
+			outputStr = Cdd2.getInstance().strFromAsBase64Str(key, Cdd2.KEY2);
 		} catch (Exception e) {
-			e.printStackTrace();
+			 e.printStackTrace();
+			 return null;
 		}
 		return outputStr;
 	}
 
 	public static void main(String[] args) {
-		System.out.println(fromMyCoder("X:VpHm9Da`Bm2+5SJbDzPt0RFIHS"));
+//		System.out.println(fromMyCoder("FsVc`4CL@fUxCm=W").trim());
+		try {
+			System.out.println(toMyCoder("1"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -126,11 +140,12 @@ public abstract class Coder {
 	 * @throws
 	 */
 	public static String encryptMD5Str(String data) throws Exception {
-		MessageDigest md5 = MessageDigest.getInstance(KEY_MD5);
-		md5.update(data.getBytes());
-		byte[] ans = md5.digest();
-		BigInteger inT = new BigInteger(ans);
-		return inT.toString(16);
+//		MessageDigest md5 = MessageDigest.getInstance(KEY_MD5);
+//		md5.update(data.getBytes());
+//		byte[] ans = md5.digest();
+//		BigInteger inT = new BigInteger(ans);
+//		return inT.toString(16);
+		return DigestUtils.md5Hex(data);
 	}
 
 	/**

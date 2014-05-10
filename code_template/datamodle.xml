@@ -16,12 +16,14 @@
 		width="100" desc="主力单价" />
 	<property name="workNum" column="people_flownum_work" type="int"
 		desc="人流量-工作日" width="60" />
+	<property name="workTime" column="work_time" type="string"
+		desc="营业时间" width="100" />
 	<property name="weekendNum" column="people_flownum_weekend"
 		type="int" width="60" desc="人流量-周末" />
 	<property name="phone" column="phone" type="string" width="100"
 		query="true" desc="联系方式" />
-	<property name="password" column="password" type="string" visible="false"  noedit="true" 
-		width="100" desc="密码" />
+	<property name="password" column="password" type="string"
+		visible="false" noedit="true" width="100" desc="密码" />
 	<property name="param1" column="param1" type="string" width="100"
 		visible="false" desc="额外参数1" />
 	<property name="lng_north" column="lng_north" type="string"

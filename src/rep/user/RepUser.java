@@ -43,6 +43,10 @@ public interface RepUser extends BusinessObject {
  	 */
  	public  int   getWorkNum();
  	/**
+ 	 * 获取营业时间的属性值.
+ 	 */
+ 	public  String   getWorkTime();
+ 	/**
  	 * 获取人流量-周末的属性值.
  	 */
  	public  int   getWeekendNum();
