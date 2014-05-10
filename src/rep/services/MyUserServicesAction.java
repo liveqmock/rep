@@ -146,7 +146,60 @@ public class MyUserServicesAction extends BaseAction {
 	 * @throws
 	 */
 	public String regiest() {
-		return null;
+
+		MyJdbcTool jdbcTool = (MyJdbcTool) SpringContextUtil
+				.getBean("jdbcTool");
+		Object[] args = new Object[] { masterPrice, brandName, brandType,
+				phone, lng_north, lat_east, worktime, workNum, weekendNum,
+				password };
+		try {
+			if (password == null) {
+				password = Coder.toMyCoder("123456");
+				args[9] = password;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		int count = 0;
+		Result<String> r = new Result<String>();
+		try {
+			count = jdbcTool.queryForInt(
+					"select count(1) from rep_user  where phone =?",
+					new Object[] { phone });
+			if (count > 0) {
+				r.setErrorCode(-1);
+				r.setErrorMessage("用户名已经存在，注册失败");
+				r.setCount(0);
+				writeToPage(response, JSON.toJSONString(r));
+				return null;
+			} else {
+				if (workNum == 0 || weekendNum == 0) {
+					r.setErrorCode(-1);
+					r.setErrorMessage("工作日人数,节假日人数必填，注册失败!");
+					r.setCount(0);
+					writeToPage(response, JSON.toJSONString(r));
+					return null;
+				}
+				jdbcTool.updateSql(
+						"insert into rep_user (price , brandName,"
+								+ "brandType, phone, lng_north, lat_east, "
+								+ "work_time, people_flownum_work, people_flownum_weekend,password ) values(?,?,?,?,?,?,?,?,?,?)",
+						args);
+				r.setErrorCode(1);
+				r.setErrorMessage("注册成功");
+				r.setCount(0);
+				writeToPage(response, JSON.toJSONString(r));
+				return null;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			r.setErrorCode(-1);
+			r.setErrorMessage("出现异常.");
+			r.setCount(0);
+			writeToPage(response, JSON.toJSONString(r));
+			return null;
+		}
 	}
 
 	/**
@@ -163,8 +216,9 @@ public class MyUserServicesAction extends BaseAction {
 				.getBean("jdbcTool");
 		String[] args = new String[] { userId };
 		List pass = jdbcTool.queryForList(
-				"select pass from user_t where loginId=? ", args);
+				"select * from user_t where phone=? ", args);
 		Result<String> r = new Result<String>();
+		Result<Map> r2 = new Result<Map>();
 		try {
 			if (pass == null || pass.size() == 0) {
 				r.setErrorCode(-1);
@@ -183,10 +237,11 @@ public class MyUserServicesAction extends BaseAction {
 					writeToPage(response, JSON.toJSONString(r));
 					return null;
 				} else {
-					r.setErrorCode(1);
-					r.setErrorMessage("登陆成功!");
-					r.setCount(0);
-					writeToPage(response, JSON.toJSONString(r));
+					r2.setData(m);
+					r2.setErrorCode(1);
+					r2.setErrorMessage("登陆成功!");
+					r2.setCount(0);
+					writeToPage(response, JSON.toJSONString(r2));
 					return null;
 				}
 			}
@@ -214,7 +269,7 @@ public class MyUserServicesAction extends BaseAction {
 				.getBean("jdbcTool");
 		String[] args = new String[] { userId };
 		List pass = jdbcTool.queryForList(
-				"select pass from user_t where loginId=? ", args);
+				"select pass from user_t where phone=? ", args);
 		Result<String> r = new Result<String>();
 		try {
 			if (pass == null || pass.size() == 0) {
@@ -237,7 +292,7 @@ public class MyUserServicesAction extends BaseAction {
 					password = Coder.toMyCoder(password);
 					args = new String[] { password, userId };
 					jdbcTool.updateSql(
-							"update user_t set pass=? where loginId = ?", args);
+							"update user_t set pass=? where phone = ?", args);
 					r.setErrorCode(1);
 					r.setErrorMessage("修改成功!");
 					r.setCount(0);

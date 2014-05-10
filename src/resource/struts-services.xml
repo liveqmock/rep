@@ -8,5 +8,8 @@
 		<action name="userService" class="rep.services.MyUserServicesAction">
 
 		</action>
+		<action name="dataService" class="rep.services.MyDataServicesAction">
+
+		</action>
 	</package>
 </struts>

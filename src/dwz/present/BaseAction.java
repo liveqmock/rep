@@ -79,7 +79,7 @@ public class BaseAction extends ActionSupport implements ServletRequestAware,
 	 */
 	protected void writeToPage(HttpServletResponse response, String str) {
 		try {
-			response.setContentType("text/html;charset=GBK");
+			//response.setContentType("text/html;charset=GBK");
 			response.getWriter().write(str);
 		} catch (IOException e) {
 			e.printStackTrace();

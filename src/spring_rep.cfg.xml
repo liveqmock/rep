@@ -8,6 +8,15 @@
 	<bean id="repuserManager" class="rep.user.RepUserManagerImpl">
 		<constructor-arg index="0" ref="repuserDao"></constructor-arg>
 	</bean>
+	<!-- bean id="jpushAction" class="rep.jpush.JpushAction">
+		<property name="jpushService" ref="jpushService"/> 
+	</bean>
+	<bean id="jpushService" class="rep.jpush.PushService">
+		<property name="dao" ref="jpushDao"/> 
+	</bean>
+	<bean id="jpushDao" class="rep.jpush.JPushDao">
+		<property name="template" ref="jdbcTemplate"/> 
+	</bean -->
 	<bean id="repdataManager" class="rep.data.RepDataManagerImpl">
 		<constructor-arg index="0" ref="repdataDao"></constructor-arg>
 	</bean>
@@ -37,6 +46,8 @@
 			</bean>
 		</property>
 	</bean>
+
+
 	<bean id="repuserDao" parent="daoProxy">
 		<property name="proxyInterfaces">
 			<value>rep.user.RepUserDao</value>
