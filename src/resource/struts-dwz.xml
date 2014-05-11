@@ -11,7 +11,7 @@
 
 	<constant name="struts.configuration.xml.reload" value="false"></constant>
 	<constant name="struts.enable.SlashesInActionNames" value="false"></constant>
- 
+
 
 	<package name="struts2" extends="struts-default" abstract="true">
 		<interceptors>

@@ -28,8 +28,7 @@ public class EncodingInterceptor extends AbstractInterceptor {
 				.get(StrutsStatics.HTTP_REQUEST);
 		HttpServletResponse response = (HttpServletResponse) actionContext
 				.get(StrutsStatics.HTTP_RESPONSE);
-		System.out.println("Encoding Intercept...");
-		/**
+	 	/**
 		 * 此方法体对GET 和 POST方法均可
 		 */
 		if (request.getMethod().compareToIgnoreCase("post") >= 0) {

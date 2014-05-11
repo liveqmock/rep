@@ -15,7 +15,7 @@ public class RepUserVO implements Serializable {
 
 	}
 	
-	public RepUserVO( int sno , String userId , String brandName , String brandType , double area , String address , double masterPrice , int workNum , String workTime , int weekendNum , String phone , String password , String param1 , String lng_north , String lat_east , String param2 ) {
+	public RepUserVO( int sno , String userId , String brandName , String brandType , double area , String address , double masterPrice , int workNum , String workTime , int weekendNum , String phone , String password , String param1 , String lng_north , String lat_east , String location , String param2 ) {
 		 this.sno = sno;
 		 this.userId = userId;
 		 this.brandName = brandName;
@@ -31,10 +31,11 @@ public class RepUserVO implements Serializable {
 		 this.param1 = param1;
 		 this.lng_north = lng_north;
 		 this.lat_east = lat_east;
+		 this.location = location;
 		 this.param2 = param2;
 	}
 	
-	public RepUserVO(String userId ,String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,String workTime ,int weekendNum ,String phone ,String password ,String param1 ,String lng_north ,String lat_east ,String param2 ) {
+	public RepUserVO(String userId ,String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,String workTime ,int weekendNum ,String phone ,String password ,String param1 ,String lng_north ,String lat_east ,String location ,String param2 ) {
 			 this.userId = userId;
 			 this.brandName = brandName;
 			 this.brandType = brandType;
@@ -49,6 +50,7 @@ public class RepUserVO implements Serializable {
 			 this.param1 = param1;
 			 this.lng_north = lng_north;
 			 this.lat_east = lat_east;
+			 this.location = location;
 			 this.param2 = param2;
 	}
 	 
@@ -261,6 +263,20 @@ public class RepUserVO implements Serializable {
  	 */
  	public void setLat_east(String lat_east){
  		this.lat_east = lat_east;
+ 	}
+	private String location; 
+ 	/**
+ 	 * 获取位置的属性值.
+ 	 */
+ 	public String getLocation(){
+ 		return location;
+ 	}
+ 	
+ 	/**
+ 	 * 设置位置的属性值.
+ 	 */
+ 	public void setLocation(String location){
+ 		this.location = location;
  	}
 	private String param2; 
  	/**

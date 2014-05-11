@@ -92,6 +92,12 @@
 					</div>
 					 <div class="unit">
 						<label>
+							位置:
+						</label>
+									<input name="location" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
 							额外参数2:
 						</label>
 									<input name="param2" class="textInput " size="30" type="text"   />

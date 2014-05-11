@@ -179,6 +179,12 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
+					case LOCATION:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.location = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
 					case PARAM2:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repuser.param2 = ? ");
@@ -244,6 +250,9 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 			break;
 			case LAT_EAST:
 				 sb.append(" order by repuser.lat_east");
+			break;
+			case LOCATION:
+				 sb.append(" order by repuser.location");
 			break;
 			case PARAM2:
 				 sb.append(" order by repuser.param2");

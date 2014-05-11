@@ -64,7 +64,7 @@ public abstract class Coder {
 	 * @return
 	 * @throws Exception
 	 */
-	public static String toMyCoder(String key) throws Exception {
+	public static String toMyCoder(String key)   {
 		String ans = Cdd2.getInstance().strToBase64Str(key, Cdd2.KEY2);
 //		byte[] inputData = key.getBytes();
 //		// 先进性base64加密
@@ -139,7 +139,7 @@ public abstract class Coder {
 	 * @return String
 	 * @throws
 	 */
-	public static String encryptMD5Str(String data) throws Exception {
+	public static String encryptMD5Str(String data)  {
 //		MessageDigest md5 = MessageDigest.getInstance(KEY_MD5);
 //		md5.update(data.getBytes());
 //		byte[] ans = md5.digest();

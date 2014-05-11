@@ -71,6 +71,10 @@ public interface RepUser extends BusinessObject {
  	 */
  	public  String   getLat_east();
  	/**
+ 	 * 获取位置的属性值.
+ 	 */
+ 	public  String   getLocation();
+ 	/**
  	 * 获取额外参数2的属性值.
  	 */
  	public  String   getParam2();

@@ -17,12 +17,12 @@ public class RepUserImpl implements RepUser {
 		this.repuserVO = repuserVO;
 	}
 
-	public RepUserImpl( int sno , String userId , String brandName , String brandType , double area , String address , double masterPrice , int workNum , String workTime , int weekendNum , String phone , String password , String param1 , String lng_north , String lat_east , String param2 ) {
-		this.repuserVO = new RepUserVO( sno , userId , brandName , brandType , area , address , masterPrice , workNum , workTime , weekendNum , phone , password , param1 , lng_north , lat_east , param2 );
+	public RepUserImpl( int sno , String userId , String brandName , String brandType , double area , String address , double masterPrice , int workNum , String workTime , int weekendNum , String phone , String password , String param1 , String lng_north , String lat_east , String location , String param2 ) {
+		this.repuserVO = new RepUserVO( sno , userId , brandName , brandType , area , address , masterPrice , workNum , workTime , weekendNum , phone , password , param1 , lng_north , lat_east , location , param2 );
 	} 
 	
-	public RepUserImpl(String userId ,String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,String workTime ,int weekendNum ,String phone ,String password ,String param1 ,String lng_north ,String lat_east ,String param2 ) {
-		this.repuserVO = new RepUserVO(userId ,brandName ,brandType ,area ,address ,masterPrice ,workNum ,workTime ,weekendNum ,phone ,password ,param1 ,lng_north ,lat_east ,param2 );
+	public RepUserImpl(String userId ,String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,String workTime ,int weekendNum ,String phone ,String password ,String param1 ,String lng_north ,String lat_east ,String location ,String param2 ) {
+		this.repuserVO = new RepUserVO(userId ,brandName ,brandType ,area ,address ,masterPrice ,workNum ,workTime ,weekendNum ,phone ,password ,param1 ,lng_north ,lat_east ,location ,param2 );
 	} 
 
 	public RepUserVO getRepUserVO() {
@@ -129,6 +129,12 @@ public class RepUserImpl implements RepUser {
  	 */
  	public  String   getLat_east(){
  		return this.repuserVO.getLat_east();
+ 	}
+ 	/**
+ 	 * 获取位置的属性值.
+ 	 */
+ 	public  String   getLocation(){
+ 		return this.repuserVO.getLocation();
  	}
  	/**
  	 * 获取额外参数2的属性值.

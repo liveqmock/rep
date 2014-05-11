@@ -1,14 +1,14 @@
-<project basedir="." default="publish" name="dwz_money">
+<project basedir="." default="publish" name="rep">
 	<target name="init" description="设置初始化打 war 包需要的路径变量">
-		<property name="name" value="dwz_money"/>
-		<property name="src" value="${basedir}/dwz_money/src"/>
-		<property name="lib" value="${basedir}/dwz_money/WebRoot/WEB-INF/lib"/>
-		<property name="webapp" value="${basedir}/dwz_money/WebRoot"/>
+		<property name="name" value="rep"/>
+		<property name="src" value="${basedir}/rep/src"/>
+		<property name="lib" value="${basedir}/rep/WebRoot/WEB-INF/lib"/>
+		<property name="webapp" value="${basedir}/rep/WebRoot"/>
 		<property name="packages" value="ant.*"/>
 		
-		<property name="build.src" value="${basedir}/AntBuild/dwz_money/src"/>
-		<property name="build.dest" value="${basedir}/AntBuild/dwz_money/WEB-INF/classes"/>
-		<property name="buildwar.dest" value="${basedir}/AntBuild/dwz_money"/>
+		<property name="build.src" value="${basedir}/AntBuild/rep/src"/>
+		<property name="build.dest" value="${basedir}/AntBuild/rep/WEB-INF/classes"/>
+		<property name="buildwar.dest" value="${basedir}/AntBuild/rep"/>
 		<property name="build.javadocs" value="${basedir}/AntBuild/doc"/>
 		<property name="jar.dest" value="${basedir}/AntBuild/jar"/>
 		<property name="war.dest" value="${basedir}/AntBuild/war"/>
@@ -53,7 +53,7 @@
 	
 	<target name="antwar" depends="javadoc" description="打 war 包，不将 java 文件打入包内">
 		<delete dir="${build.src}"/>
-		<war warfile="${war.dest}/dwz_money.war" webxml="${buildwar.dest}/WEB-INF/web.xml">
+		<war warfile="${war.dest}/rep.war" webxml="${buildwar.dest}/WEB-INF/web.xml">
 			<lib dir="${buildwar.dest}/WEB-INF/lib"/>
 			<classes dir="${build.dest}"/>
 			<fileset dir="${buildwar.dest}"/>

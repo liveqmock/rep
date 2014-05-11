@@ -30,6 +30,8 @@
 		width="100" desc="纬度" />
 	<property name="lat_east" column="lat_east" type="string"
 		width="100" desc="经度" />
+	<property name="location" column="location" type="string"
+		width="100" desc="位置" />
 	<property name="param2" column="param2" type="string" width="100"
 		visible="false" desc="额外参数2" />
 </class>

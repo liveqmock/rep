@@ -113,6 +113,9 @@
 				<th width="100"    orderField="LAT_EAST" >
 						经度 
 				</th> 
+				<th width="100"    orderField="LOCATION" >
+						位置 
+				</th> 
 			</tr>
 		</thead>
 		<tbody>
@@ -157,6 +160,9 @@
 					</td> 
 					<td>
 						<s:property value="lat_east" />
+					</td> 
+					<td>
+						<s:property value="location" />
 					</td> 
 				</tr>
 			</s:iterator>

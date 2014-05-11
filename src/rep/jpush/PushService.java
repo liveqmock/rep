@@ -106,7 +106,7 @@ public class PushService implements IJpushService {
 		} else if (Constants.ANDROID.equals(osType.trim())) {
 			List<JpushVO> vos = queryTagAndAlias(userId, sysCode,
 					Constants.ANDROID);
-			if (vos.size() > 0) {
+			if (vos==null||vos.size() > 0) {
 				System.out.println("查询到的token;" + vos.get(0).getToken());
 				MessageResult result = JpushUtil.sendNotificationByAlias(vos
 						.get(0).getToken(), content, extras);
@@ -149,7 +149,7 @@ public class PushService implements IJpushService {
 			String deviceType, String token) {
 		List<JpushVO> ans = queryTagAndAlias(userId, sysCode, deviceType);
 		// 如果找不到以前的记录，就插入新的数据
-		if (ans.size() == 0) {
+		if (ans==null||ans.size() == 0) {
 			token = saveJpushVo(deviceType, token, sysCode, userId);
 		}
 		// 否则就返回以前的token.

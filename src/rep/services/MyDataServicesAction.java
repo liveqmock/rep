@@ -5,7 +5,6 @@ import rep.jpush.Result;
 import com.alibaba.fastjson.JSON;
 import common.MyJdbcTool;
 import common.base.SpringContextUtil;
-import common.util.Coder;
 
 import dwz.present.BaseAction;
 
@@ -18,6 +17,13 @@ import dwz.present.BaseAction;
 public class MyDataServicesAction extends BaseAction {
 	// 日期
 	private String indate;
+	private String token;
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
 	// 数据收集方式
 	private String dataType;
 	public String getIndate() {
@@ -82,25 +88,33 @@ public class MyDataServicesAction extends BaseAction {
 	private String userId;
 	
 	public String addData(){
-		MyJdbcTool jdbcTool = (MyJdbcTool) SpringContextUtil
-				.getBean("jdbcTool");
 		Object[] args = new Object[] { indate, dataType, comeNum,
 				intrestNum, tryNum, buyNum, oldNum, userId  };
 	 	Result<String> r = new Result<String>();
+	 	MyJdbcTool jdbcTool = (MyJdbcTool) SpringContextUtil
+				.getBean("jdbcTool");
+	 	//验证失败.
+	 	if(!MyUserServicesAction.geneateToken(userId).equals(token)){
+	 		r.setErrorCode(Result.VALID_WRONG);
+			r.setErrorMessage("url验证失败，请传入正确的token");
+			r.setCount(0);
+			writeToPage(response, JSON.toJSONString(r));
+			return null;
+	 	}
 		try {
 			 jdbcTool.updateSql(
 						"insert into rep_data (indate , datatype,"
 								+ "come_num, intrest_num, try_num, buy_num, "
 								+ "old_num, userid ) values(?,?,?,?,?,?,?,?)",
 						args);
-				r.setErrorCode(1);
+				r.setErrorCode(Result.SUCCESS);
 				r.setErrorMessage("添加成功");
 				r.setCount(0);
 				writeToPage(response, JSON.toJSONString(r));
 				return null; 
 		} catch (Exception e) {
 			e.printStackTrace();
-			r.setErrorCode(-1);
+			r.setErrorCode(Result.SREVER_ERROR);
 			r.setErrorMessage("出现异常.");
 			r.setCount(0);
 			writeToPage(response, JSON.toJSONString(r));

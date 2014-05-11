@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 
 import com.alibaba.fastjson.JSON;
+import common.base.SpringContextUtil;
 
 import dwz.framework.constants.Constants;
 import dwz.present.BaseAction;
@@ -29,7 +30,6 @@ import dwz.present.BaseAction;
  * @version
  */
 public class JpushAction extends BaseAction {
-	PushService jpushService;
 	private String sysCode;
 	private String osType;
 	private String content;
@@ -113,14 +113,7 @@ public class JpushAction extends BaseAction {
 	public void setToUser(String toUser) {
 		this.toUser = toUser;
 	}
-
-	public PushService getJpushService() {
-		return jpushService;
-	}
-
-	public void setJpushService(PushService jpushService) {
-		this.jpushService = jpushService;
-	}
+ 
 
 	public String getOsType() {
 		return osType;
@@ -144,6 +137,7 @@ public class JpushAction extends BaseAction {
 	 * @return
 	 */
 	public String sendMessageToAll() {
+		PushService jpushService = (PushService)SpringContextUtil.getBean("jpushService");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		try {
 			content = new String(content.getBytes("ISO-8859-1"), "UTF-8");
@@ -163,6 +157,7 @@ public class JpushAction extends BaseAction {
 					osType));
 			res.setErrorCode(Constants.SUCCESS);
 			// 返回json
+			writeToPage(response, res);
 
 		} catch (UnsupportedEncodingException e) {
 			Result res = new Result();
@@ -179,6 +174,8 @@ public class JpushAction extends BaseAction {
 	 * @return
 	 */
 	public String sendMessageToOne() {
+		PushService jpushService = (PushService) SpringContextUtil
+				.getBean("jpushService");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		try {
 			content = new String(content.getBytes("ISO-8859-1"), "UTF-8");
@@ -199,6 +196,7 @@ public class JpushAction extends BaseAction {
 			res.setErrorCode(Constants.SUCCESS);
 			// 返回json
 			writeToPage(response, res);
+			return null;
 
 		} catch (UnsupportedEncodingException e) {
 			Result res = new Result();
@@ -215,6 +213,8 @@ public class JpushAction extends BaseAction {
 	 * @return
 	 */
 	public String setTagAndAlias() {
+		PushService jpushService = (PushService) SpringContextUtil
+				.getBean("jpushService");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		Result<String> res = new Result<String>();
 		String token = jpushService.saveTagAndAlias(businoId, sysCode,
@@ -233,6 +233,8 @@ public class JpushAction extends BaseAction {
 	 * @return
 	 */
 	public String deleteTagAndAlias() {
+		PushService jpushService = (PushService) SpringContextUtil
+				.getBean("jpushService");
 		HttpServletResponse response = ServletActionContext.getResponse();
 		Result<String> res = new Result<String>();
 		jpushService.deleteTagAndAlias(businoId, sysCode, deviceType);
