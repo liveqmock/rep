@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="rep.pushcontent.PushContentVO" table="push_content">
+		<id name="sno" column="id" type="int">
+			<generator class="increment"></generator>
+		</id>
+				<property name="userIds" column="userid" type="string" />
+				<property name="content" column="content" type="string" />
+				<property name="pushTime" column="push_time" type="date" />
+				<property name="userNames" column="userName" type="string" />
+				<property name="deviceType" column="deviceType" type="string" />
+	</class>
+
+	<query name="rep.pushcontent.PushContentDao.findRecordById">
+		<![CDATA[from PushContentVO as pushContentDao where sno = ?]]>
+	</query>
+</hibernate-mapping>

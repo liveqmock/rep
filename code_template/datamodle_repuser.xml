@@ -1,0 +1,37 @@
+<class name="RepUser" table="rep_user" desc="erp用户表" package="rep.user"
+	namespace="/rep">
+	<id name="sno" column="id" type="int" desc="流水号" width="10" visible="false"
+		noedit="true" />
+	<property name="userId" column="userid" type="string" desc="用户id"
+		width="100" notnull="true" />
+	<property name="brandName" column="brandname" type="string"
+		querylike='true' width="120" desc="品牌名称" query="true" />
+	<property name="brandType" column="brandtype" type="string"
+		desc="品类" width="100" />
+	<property name="area" column="area" type="double" desc="营业面积"
+		width="80" />
+	<property name="address" column="address" type="string" desc="店铺地址"
+		querylike='true' query="true" width="250" />
+	<property name="masterPrice" column="price" type="double"
+		width="100" desc="主力单价" />
+	<property name="workNum" column="people_flownum_work" type="int"
+		desc="人流量-工作日" width="60" />
+	<property name="workTime" column="work_time" type="string"
+		desc="营业时间" width="100" />
+	<property name="weekendNum" column="people_flownum_weekend"
+		type="int" width="60" desc="人流量-周末" />
+	<property name="phone" column="phone" type="string" width="100"
+		query="true" desc="联系方式" />
+	<property name="password" column="password" type="string"
+		visible="false" noedit="true" width="100" desc="密码" />
+	<property name="param1" column="param1" type="string" width="100"
+		visible="false" desc="额外参数1" />
+	<property name="lng_north" column="lng_north" type="string"
+		width="100" desc="纬度" />
+	<property name="lat_east" column="lat_east" type="string"
+		width="100" desc="经度" />
+	<property name="location" column="location" type="string"
+		width="100" desc="位置" />
+	<property name="param2" column="param2" type="string" width="100"
+		visible="false" desc="额外参数2" />
+</class>

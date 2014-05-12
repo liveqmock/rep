@@ -1,4 +1,4 @@
-<class name="MyUser" table="user_t" desc="用户信息表" package="money.myuser" namesapce="/money">
+<class name="MyUser" table="user_t" desc="用户信息表" package="money.myuser" namespace="/money">
 	<id name="useId" column="id" type="int" desc="用户流水号" query="true" width="100"/>
 	<property name="userName" column="userName" type="string" desc="用户名" query="true"  querylike="true" width="100" notnull="true" noedit="true"/> 
 	<property name="password" column="pass" type="string" desc="密码" width="100" notnull="true" visible="false"/>

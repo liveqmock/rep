@@ -5,7 +5,7 @@ public enum BeanManagerKey {
 	roleManager,setupManager,systemLogManager,cacheManager,repstatsManager,
 	newsManager,contentManager,websiteManager,categoryManager,
 	queryGridTreeBO,moneyManager,allSelectManager,userManager,repuserManager,
-	paramManager,paramtypeManager, 
+	paramManager,paramtypeManager, pushcontentManager,
 	menuManager,orgManager,questionManager,myuserManager,
 	usermenurightManager,rolewithmenuManager,homepageurlManager,userrolerightManager,
 	workflowDeploymentManager,fileManager,filemanagerManager

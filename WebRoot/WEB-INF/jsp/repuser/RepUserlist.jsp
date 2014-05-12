@@ -76,9 +76,6 @@
 			<tr>
 				<th width="30">
 					<input type="checkbox" group="ids" class="checkboxCtrl">
-				</th>
-				<th width="100"    orderField="USERID" >
-						用户id 
 				</th> 
 				<th width="120"    orderField="BRANDNAME" >
 						品牌名称 
@@ -124,9 +121,6 @@
 					<td>
 						<input name="ids" value="<s:property value="sno" />"
 							type="checkbox">
-					</td>
-					<td>
-						<s:property value="userId" />
 					</td> 
 					<td>
 						<s:property value="brandName" />

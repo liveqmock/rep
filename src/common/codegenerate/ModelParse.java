@@ -23,6 +23,12 @@ public class ModelParse {
 	private String classDesc;
 	private String packageName;
 	private String namespaceName;
+	private String noAdd;
+	private String noUpdate;
+	private String noDelete;
+	private String noExport;
+	private String noQuery;
+	private String noQuery2;
 
 	public String getFileName() {
 		return fileName;
@@ -38,9 +44,15 @@ public class ModelParse {
 		Node list = doc.getElementsByTagName("class").item(0);
 		table = DomUtil.getAttribute(list, "table");
 		packageName = DomUtil.getAttribute(list, "package");
-		namespaceName= DomUtil.getAttribute(list, "namesapce");
+		namespaceName = DomUtil.getAttribute(list, "namespace");
 		className = DomUtil.getAttribute(list, "name");
 		classDesc = DomUtil.getAttribute(list, "desc");
+		noAdd = DomUtil.getAttribute(list, "noAdd");
+		noUpdate = DomUtil.getAttribute(list, "noEdit");
+		noDelete = DomUtil.getAttribute(list, "noDel");
+		noExport = DomUtil.getAttribute(list, "noExport");
+		noQuery = DomUtil.getAttribute(list, "noQuery");
+		noQuery2 = DomUtil.getAttribute(list, "noQuery2");
 		NodeList children = list.getChildNodes();
 		for (int j = 0; j < children.getLength(); j++) {
 			Node child = children.item(j);
@@ -55,36 +67,38 @@ public class ModelParse {
 					model.setKeyType(DomUtil.getAttribute(child, "type"));
 				} else
 					config.setIskey("false");
-				//节点类型
+				// 节点类型
 				config.setNodeType(child.getNodeName());
-				//节点汉字注释
+				// 节点汉字注释
 				config.setDesc(DomUtil.getAttribute(child, "desc"));
-				//是否要检索
-				config.setQuery(DomUtil.getAttribute(child, "query")); 
-				//列属性名
+				// 是否要检索
+				config.setQuery(DomUtil.getAttribute(child, "query"));
+				// 列属性名
 				config.setName(DomUtil.getAttribute(child, "name"));
-				//是否模糊匹配
+				// 是否模糊匹配
 				config.setQuerylike(DomUtil.getAttribute(child, "querylike"));
-				//显示在list.jsp里面的列宽度
+				config.setAddVisible(DomUtil.getAttribute(child, "addVisible"));
+				config.setEditVisible(DomUtil.getAttribute(child, "editVisible"));
+				// 显示在list.jsp里面的列宽度
 				config.setWidth(DomUtil.getAttribute(child, "width"));
-				//是否是文本域
+				// 是否是文本域
 				config.setTextarea(DomUtil.getAttribute(child, "textarea"));
-				//是否在list.jsp里面列表中显示出来
+				// 是否在list.jsp里面列表中显示出来
 				config.setVisible(DomUtil.getAttribute(child, "visible"));
-				//对应数据库中的列名
+				// 对应数据库中的列名
 				config.setColumn(DomUtil.getAttribute(child, "column"));
-				//类型
+				// 类型
 				config.setType(DomUtil.getAttribute(child, "type"));
-				//是否是业务字典
+				// 是否是业务字典
 				config.setSelectType(DomUtil.getAttribute(child, "selectType"));
-				//是否必填字段
+				// 是否必填字段
 				config.setNotnull(DomUtil.getAttribute(child, "notnull"));
-				//是否在edit.jsp中可以编辑
+				// 是否在edit.jsp中可以编辑
 				config.setNoedit(DomUtil.getAttribute(child, "noedit"));
-				//对应的样式
+				// 对应的样式
 				config.setClas(DomUtil.getAttribute(child, "class"));
-				//在数据库里面的字段长度.
-				config.setLength(DomUtil.getAttribute(child, "length")); 
+				// 在数据库里面的字段长度.
+				config.setLength(DomUtil.getAttribute(child, "length"));
 				attributes.add(config);
 			}
 		}
@@ -94,6 +108,12 @@ public class ModelParse {
 		model.setPackageName(packageName);
 		model.setClassDesc(classDesc);
 		model.setAttributes(attributes);
+		model.setNoAdd(noAdd);
+		model.setNoDelete(noDelete);
+		model.setNoExport(noExport);
+		model.setNoQuery(noQuery);
+		model.setNoQuery2(noQuery2);
+		model.setNoUpdate(noUpdate); 
 		return model;
 	}
 }

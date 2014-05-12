@@ -13,11 +13,67 @@ public class ClassModel {
 		return namespace;
 	}
 
+	private String noAdd;
+	private String noUpdate;
+	private String noDelete;
+	private String noExport;
+	private String noQuery;
+	private String noQuery2;
+
+	public String getNoAdd() {
+		return noAdd;
+	}
+
+	public void setNoAdd(String noAdd) {
+		this.noAdd = noAdd;
+	}
+
+	public String getNoUpdate() {
+		return noUpdate;
+	}
+
+	public void setNoUpdate(String noUpdate) {
+		this.noUpdate = noUpdate;
+	}
+
+	public String getNoDelete() {
+		return noDelete;
+	}
+
+	public void setNoDelete(String noDelete) {
+		this.noDelete = noDelete;
+	}
+
+	public String getNoExport() {
+		return noExport;
+	}
+
+	public void setNoExport(String noExport) {
+		this.noExport = noExport;
+	}
+
+	public String getNoQuery() {
+		return noQuery;
+	}
+
+	public void setNoQuery(String noQuery) {
+		this.noQuery = noQuery;
+	}
+
+	public String getNoQuery2() {
+		return noQuery2;
+	}
+
+	public void setNoQuery2(String noQuery2) {
+		this.noQuery2 = noQuery2;
+	}
+
 	public void setNamespace(String namespace) {
 		this.namespace = namespace;
 	}
 
 	private String namespace;
+
 	public List getAttributes() {
 		return attributes;
 	}
@@ -86,6 +142,7 @@ public class ClassModel {
 	private String keyColumn;
 	private String keyType;
 	private String keyDesc;
+
 	public String getKeyName() {
 		return keyName;
 	}

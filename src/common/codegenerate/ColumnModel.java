@@ -12,12 +12,30 @@ public class ColumnModel {
 	private String name;
 	private String noedit;
 	private String querylike;
+	private String addVisible;
+	private String editVisible;
 	public String getQuerylike() {
 		return querylike;
 	}
 
 	public void setQuerylike(String querylike) {
 		this.querylike = querylike;
+	}
+
+	public String getAddVisible() {
+		return addVisible;
+	}
+
+	public void setAddVisible(String addVisible) {
+		this.addVisible = addVisible;
+	}
+
+	public String getEditVisible() {
+		return editVisible;
+	}
+
+	public void setEditVisible(String editVisible) {
+		this.editVisible = editVisible;
 	}
 
 	public String getNoedit() {

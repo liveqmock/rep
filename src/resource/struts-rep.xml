@@ -9,15 +9,26 @@
 			<result name="list">
 				/WEB-INF/jsp/repuser/RepUserlist.jsp
 			</result>
+			<result name="detail">
+				/WEB-INF/jsp/repuser/RepUserinfo.jsp
+			</result>
+			<result name="editdetail">
+				/WEB-INF/jsp/repuser/RepUseredit.jsp
+			</result>
+		</action>
+		<action name="pushcontent" class="rep.pushcontent.PushContentAction">
+			<result name="list">
+				/WEB-INF/jsp/pushcontent/PushContentlist.jsp
+			</result>
 					<result name="detail">
-						/WEB-INF/jsp/repuser/RepUserinfo.jsp
+						/WEB-INF/jsp/pushcontent/PushContentinfo.jsp
 			</result>
 					<result name="editdetail">
-						/WEB-INF/jsp/repuser/RepUseredit.jsp
+						/WEB-INF/jsp/pushcontent/PushContentedit.jsp
 			</result>
 		</action>
 		<action name="jpush" class="rep.jpush.JpushAction">
-			 
+
 		</action>
 		<action name="repstats" class="rep.stats.RepStatsAction">
 			<result name="list">

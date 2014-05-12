@@ -1,5 +1,5 @@
 <class name="RepData" table="rep_data" desc="erp数据记录" package="rep.data"
-	noAdd="true" noEdit="true" noDel="true" noExport="true" namesapce="/rep">
+	noAdd="true" noEdit="true" noDel="true" noExport="true" noQuery2="true" noQuery="true" namespace="/rep">
 	<id name="sno" column="id" type="int" desc="流水号" width="10" visible="false"
 		noedit="true" />
 	<property name="inputDate" column="indate" type="date" desc="输入日期"

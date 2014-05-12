@@ -8,6 +8,22 @@
 	<bean id="repuserManager" class="rep.user.RepUserManagerImpl">
 		<constructor-arg index="0" ref="repuserDao"></constructor-arg>
 	</bean> 
+	<bean id="pushcontentManager"
+	class="rep.pushcontent.PushContentManagerImpl">
+		<constructor-arg index="0" ref="pushcontentDao"></constructor-arg>
+	</bean>
+	<bean id="pushcontentDao" parent="daoProxy">
+		<property name="proxyInterfaces">
+			<value>rep.pushcontent.PushContentDao</value>
+		</property>
+		<property name="target">
+			<bean parent="baseDao">
+				<constructor-arg value="rep.pushcontent.PushContentVO">
+				</constructor-arg>
+			</bean>
+		</property>
+	</bean>
+	
 	<bean id="jpushService" class="rep.jpush.PushService">
 		<property name="dao" ref="jpushDao"/> 
 	</bean>

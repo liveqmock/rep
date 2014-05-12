@@ -1,4 +1,4 @@
-<class name="Menu" table="menu_t" desc="菜单信息表" package="money.menu" namesapce="/money">
+<class name="Menu" table="menu_t" desc="菜单信息表" package="money.menu" namespace="/money">
 	<id name="menuId" column="menuId" type="int" desc="菜单流水号"  query="true"    width="100" noedit="true"/>
 	<property name="target" column="target" type="string" desc="目标" width="10" visible="false" noedit="true"/> 
 	<property name="menuName" column="menuName" type="string" desc="菜单名称" query="true" querylike='true'  width="80"/>

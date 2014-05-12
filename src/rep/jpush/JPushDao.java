@@ -2,14 +2,20 @@ package rep.jpush;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ConnectionCallback;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class JPushDao implements IJPushDao { 
+import common.util.CommonUtil;
+
+public class JPushDao implements IJPushDao {
 	private JdbcTemplate template;
 
 	public JdbcTemplate getTemplate() {
@@ -58,45 +64,43 @@ public class JPushDao implements IJPushDao {
 
 	@Override
 	public List<JpushVO> selectPushUser(final JpushVO vo) {
-//		)List<JpushVO> result = new ArrayList<JpushVO>(); 
-//		StringBuffer buf = new StringBuffer("select * from push_user where ");
-//		if(vo.getPushId()>0){
-//			buf.append(" id = ?");
-//		}
-//		if(vo.getSysCode()!=null&&!"".equals(vo.getSysCode())){
-//			buf.append(" syscode = ?");
-//		}
-//		if(vo.getUserId()!=null&&!"".equals(vo.getUserId())){
-//			buf.append(" userid = ?");
-//		}
-//		if(vo.getUserId()!=null&&!"".equals(vo.getUserId())){
-//			buf.append(" userid = ?");
-//		}
-//		template.execute(new ConnectionCallback() {
-//			@Override
-//			public Object doInConnection(Connection con) throws SQLException,
-//					DataAccessException {
-//				PreparedStatement ps = con
-//						.prepareStatement("select * from push_user where userid ");
-//				ps.setInt(1, vo.getEmpId());
-//				ps.setString(2, vo.getEmpCode());
-//				ps.setString(3, vo.getEmpName());
-//				ps.setString(4, vo.getBirthDate());
-//				ps.setString(5, vo.getEmpStatus());
-//				ps.setString(6, vo.getCardNo());
-//				ps.setString(7, vo.getMobileNo());
-//				ps.setString(8, vo.getEmail());
-//				ps.setString(9, vo.getJobName());
-//				ps.setString(10, vo.getJobLevel());
-//				ps.setString(11, vo.getJobSequence());
-//				ps.setString(12, vo.getJobDuty());
-//				ps.executeUpdate();
-//				return null;
-//			}
-//		},arg);
-//		
-//		result = this.getSqlSession(.selectList(NAMESPACE + "getPushs", vo);
-		return null;
+		List<JpushVO> result = new ArrayList<JpushVO>();
+		final List args = new ArrayList();
+		StringBuffer buf = new StringBuffer(
+				"select * from push_user where 1=1 ");
+		if (!CommonUtil.isEmpty(vo.getSysCode())) {
+			buf.append(" and syscode = ?");
+			args.add(vo.getSysCode());
+		}
+		if (!CommonUtil.isEmpty(vo.getUserId())) {
+			buf.append(" and userid = ?");
+			args.add(vo.getUserId());
+		}
+		if (!CommonUtil.isEmpty(vo.getDeviceType())) {
+			buf.append(" and devicetype = ?");
+			args.add(vo.getDeviceType());
+		}
+		final String sql = buf.toString();
+		return template.execute(new ConnectionCallback() {
+			@Override
+			public List<JpushVO> doInConnection(Connection con)
+					throws SQLException, DataAccessException {
+				List<JpushVO> temp = new ArrayList<JpushVO>();
+				PreparedStatement ps = con.prepareStatement(sql);
+				for (int i = 0; i < args.size(); i++) {
+					ps.setString(i + 1, args.get(i) + "");
+				}
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					JpushVO v = new JpushVO();
+					v.setDeviceType(rs.getString("devicetype"));
+					v.setToken(rs.getString("token"));
+					v.setUserId(rs.getString("userid"));
+					temp.add(v);
+				}
+				return temp;
+			}
+		});
 	}
 
 	@Override

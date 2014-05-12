@@ -93,8 +93,7 @@ public class PushService implements IJpushService {
 			// 发送到安卓.
 			List<JpushVO> vos = queryTagAndAlias(userId, sysCode,
 					Constants.ANDROID);
-			if (vos.size() > 0) {
-				System.out.println("查询到的token;" + vos.get(0).getToken());
+			if (vos!=null&&vos.size() > 0) { 
 				MessageResult result = JpushUtil.sendNotificationByAlias(vos
 						.get(0).getToken(), content, extras);
 				if (result.isResultOK())
@@ -106,8 +105,7 @@ public class PushService implements IJpushService {
 		} else if (Constants.ANDROID.equals(osType.trim())) {
 			List<JpushVO> vos = queryTagAndAlias(userId, sysCode,
 					Constants.ANDROID);
-			if (vos==null||vos.size() > 0) {
-				System.out.println("查询到的token;" + vos.get(0).getToken());
+			if (vos!=null&&vos.size() > 0) { 
 				MessageResult result = JpushUtil.sendNotificationByAlias(vos
 						.get(0).getToken(), content, extras);
 				if (result.isResultOK())

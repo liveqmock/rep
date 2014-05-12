@@ -110,18 +110,18 @@ public class RepUserVO implements Serializable {
  	public void setBrandType(String brandtype){
  		this.brandType = brandtype;
  	}
-	private double area; 
+	private Double area; 
  	/**
  	 * 获取营业面积的属性值.
  	 */
- 	public double getArea(){
+ 	public Double getArea(){
  		return area;
  	}
  	
  	/**
  	 * 设置营业面积的属性值.
  	 */
- 	public void setArea(double area){
+ 	public void setArea(Double area){
  		this.area = area;
  	}
 	private String address; 

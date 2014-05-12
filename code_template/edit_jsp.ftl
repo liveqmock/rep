@@ -13,14 +13,18 @@
 			value="<s:property value="vo.${model.keyName}"/>">
 		<div class="pageFormContent" layoutH="57"> 
 			<#list model.attributes as attr> 
-				<#if '${attr.name}'!='${model.keyName}'>
+				<#if '${attr.name}'!='${model.keyName}'&&'${attr.editVisible}'!='false'>
 					 <div class="unit">
 						<label>
 							${attr.desc}:
 						</label>
 						<#if '${attr.type}'='date'>
+							<#if '${attr.noedit}'!='true'>
 							<input type="text" name="${attr.name}" class="date <#if "${attr.notnull}"='true'>required</#if>" size="30" readOnly="true"  value="<s:property value="vo.${attr.name}"/>" />
 							<a class="inputDateButton" href="javascript:;">选择</a>
+							<#else>
+								<input class="textInput" name="${attr.name}"  size="30" readOnly="true"  value="<s:property value="vo.${attr.name}"/>" />
+							</#if>
 						<#else>
 							<#if '${attr.textarea}'='true'>
 								<textarea  <#if "${attr.noedit}"='true'>readonly='true'</#if> class="<#if "${attr.notnull}"='true'&&"${attr.noedit}"!='true'>required</#if>" name="${attr.name}" cols="30" rows="2"><s:property value="vo.${attr.name}"/></textarea>
