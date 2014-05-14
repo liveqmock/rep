@@ -56,6 +56,12 @@
 					</div>
 					 <div class="unit">
 						<label>
+							营业时间:
+						</label>
+									<input name="workTimeNum" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
 							人流量-周末:
 						</label>
 									<input name="weekendNum" class="textInput " size="30" type="text"   />
@@ -83,6 +89,13 @@
 							纬度:
 						</label>
 									<input name="lng_north" class="textInput " size="30" type="text"   />
+					</div>
+					 <div class="unit">
+						<label>
+							注册时间:
+						</label>
+							<input type="text" name="inDate" class="date " size="30" readOnly="true"   />
+							<a class="inputDateButton" href="javascript:;">选择</a>
 					</div>
 					 <div class="unit">
 						<label>

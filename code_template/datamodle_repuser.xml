@@ -1,4 +1,4 @@
-<class name="RepUser" table="rep_user" desc="erp用户表" package="rep.user"
+<class name="RepUser" table="rep_user" desc="erp用户表" package="rep.user" noAdd="true" noQuery2="true" noExport="true"
 	namespace="/rep">
 	<id name="sno" column="id" type="int" desc="流水号" width="10" visible="false"
 		noedit="true" />
@@ -18,6 +18,8 @@
 		desc="人流量-工作日" width="60" />
 	<property name="workTime" column="work_time" type="string"
 		desc="营业时间" width="100" />
+	<property name="workTimeNum" column="work_time_num" type="string"
+		desc="营业时间" width="100" />
 	<property name="weekendNum" column="people_flownum_weekend"
 		type="int" width="60" desc="人流量-周末" />
 	<property name="phone" column="phone" type="string" width="100"
@@ -26,11 +28,13 @@
 		visible="false" noedit="true" width="100" desc="密码" />
 	<property name="param1" column="param1" type="string" width="100"
 		visible="false" desc="额外参数1" />
-	<property name="lng_north" column="lng_north" type="string"
+	<property name="lng_north" column="lng_north" type="string" addVisible="false"
 		width="100" desc="纬度" />
+	<property name="inDate" column="indate" type="date" addVisible="false" editVisible="false"
+		width="100" desc="注册时间" />
 	<property name="lat_east" column="lat_east" type="string"
 		width="100" desc="经度" />
-	<property name="location" column="location" type="string"
+	<property name="location" column="location" type="string" addVisible="false" noedit="true"
 		width="100" desc="位置" />
 	<property name="param2" column="param2" type="string" width="100"
 		visible="false" desc="额外参数2" />

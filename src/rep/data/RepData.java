@@ -58,4 +58,8 @@ public interface RepData extends BusinessObject {
  	 * 获取额外参数3的属性值.
  	 */
  	public  String   getParam3();
+ 	/**
+ 	 * 获取营业时间间隔的属性值.
+ 	 */
+ 	public  String   getTimeSpan();
 }

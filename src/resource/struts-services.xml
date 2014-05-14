@@ -11,5 +11,8 @@
 		<action name="dataService" class="rep.services.MyDataServicesAction">
 
 		</action>
+		<action name="statisService" class="rep.services.MyStatisServicesAction">
+
+		</action>
 	</package>
 </struts>

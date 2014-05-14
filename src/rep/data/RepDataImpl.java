@@ -17,12 +17,12 @@ public class RepDataImpl implements RepData {
 		this.repdataVO = repdataVO;
 	}
 
-	public RepDataImpl( int sno , Date inputDate , String dataType , int comeNum , int instrestNum , int tryNum , int buyNum , int oldNum , int userId , String param1 , String param2 , String param3 ) {
-		this.repdataVO = new RepDataVO( sno , inputDate , dataType , comeNum , instrestNum , tryNum , buyNum , oldNum , userId , param1 , param2 , param3 );
+	public RepDataImpl( int sno , Date inputDate , String dataType , int comeNum , int instrestNum , int tryNum , int buyNum , int oldNum , int userId , String param1 , String param2 , String param3 , String timeSpan ) {
+		this.repdataVO = new RepDataVO( sno , inputDate , dataType , comeNum , instrestNum , tryNum , buyNum , oldNum , userId , param1 , param2 , param3 , timeSpan );
 	} 
 	
-	public RepDataImpl(Date inputDate ,String dataType ,int comeNum ,int instrestNum ,int tryNum ,int buyNum ,int oldNum ,int userId ,String param1 ,String param2 ,String param3 ) {
-		this.repdataVO = new RepDataVO(inputDate ,dataType ,comeNum ,instrestNum ,tryNum ,buyNum ,oldNum ,userId ,param1 ,param2 ,param3 );
+	public RepDataImpl(Date inputDate ,String dataType ,int comeNum ,int instrestNum ,int tryNum ,int buyNum ,int oldNum ,int userId ,String param1 ,String param2 ,String param3 ,String timeSpan ) {
+		this.repdataVO = new RepDataVO(inputDate ,dataType ,comeNum ,instrestNum ,tryNum ,buyNum ,oldNum ,userId ,param1 ,param2 ,param3 ,timeSpan );
 	} 
 
 	public RepDataVO getRepDataVO() {
@@ -111,6 +111,12 @@ public class RepDataImpl implements RepData {
  	 */
  	public  String   getParam3(){
  		return this.repdataVO.getParam3();
+ 	}
+ 	/**
+ 	 * 获取营业时间间隔的属性值.
+ 	 */
+ 	public  String   getTimeSpan(){
+ 		return this.repdataVO.getTimeSpan();
  	}
  
 }

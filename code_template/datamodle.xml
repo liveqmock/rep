@@ -1,17 +1,29 @@
-<class name="PushContent" table="push_content" desc="推送信息表"
-	noQuery="false" noQuery2="true" noAdd="false" noEdit="false" noDel="false"
-	noExport="true" package="rep.pushcontent" namespace="/rep">
+<class name="RepData" table="rep_data" desc="erp数据记录" package="rep.data"
+	noExport="true" noQuery2="true" noQuery="true" namespace="/rep">
 	<id name="sno" column="id" type="int" desc="流水号" width="10" visible="false"
 		noedit="true" />
-	<property name="userIds" column="userid" type="string" desc="推送用户id"
-		visible="false" width="100" />
-	<property name="content" column="content" type="string"
-		querylike='true' width="150" desc="推送内容" query="true" textarea="true" />
-	<property name="pushTime" column="push_time" type="date"
-		  addVisible="false" noedit="true" desc="推送时间"
+	<property name="inputDate" column="indate" type="date" desc="输入日期"
+		width="100" notnull="true" />
+	<property name="dataType" column="datatype" type="string"
+		width="120" desc="收集方式" query="true" />
+	<property name="comeNum" column="come_num" type="int" desc="进店人数"
 		width="100" />
-	<property name="userNames" column="userName" type="string"
-		desc="推送用户" width="250" />
-	<property name="deviceType" column="deviceType" type="string"
-		desc="推送机器类型" selectType="deviceType" query="true" width="50" />
+	<property name="instrestNum" column="intrest_num" type="int"
+		desc="感兴趣人数" width="100" />
+	<property name="tryNum" column="try_num" type="int" desc="试衣人数"
+		width="100" />
+	<property name="buyNum" column="buy_num" type="int" width="100"
+		desc="购买人数" />
+	<property name="oldNum" column="old_num" type="int" desc="老顾客人数"
+		width="100" />
+	<property name="userId" column="userid" type="int" desc="统计用户"
+		noedit="true" visible="false" />
+	<property name="param1" column="param1" type="string" width="0"
+		addVisible="false" noedit="true" visible="false" desc="额外参数1" />
+	<property name="param2" column="param2" type="string" width="0"
+		addVisible="false" noedit="true" visible="false" desc="额外参数2" />
+	<property name="param3" column="param3" type="string" width="0"
+		addVisible="false" noedit="true" visible="false" desc="额外参数3" />
+	<property name="timeSpan" column="timespan" type="string"
+		width="0" addVisible="false" noedit="true" visible="false" desc="营业时间间隔" />
 </class>

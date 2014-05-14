@@ -5,6 +5,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import common.base.ParamSelect;
+import common.base.AllSelect;
+import common.base.SpringContextUtil;
+import dwz.constants.BeanManagerKey;
 import common.base.AllSelect;
 import common.base.AllSelectContants;
 import dwz.framework.core.business.AbstractBusinessObjectManager;
@@ -143,6 +147,12 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
+					case WORKTIMENUM:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.workTimeNum = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
 					case WEEKENDNUM:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repuser.weekendNum = ? ");
@@ -170,6 +180,12 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 					case LNG_NORTH:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repuser.lng_north = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
+					case INDATE:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.inDate = ? ");
 						argList.add(entry.getValue());
 						count++;
 					break;
@@ -233,6 +249,9 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 			case WORKTIME:
 				 sb.append(" order by repuser.workTime");
 			break;
+			case WORKTIMENUM:
+				 sb.append(" order by repuser.workTimeNum");
+			break;
 			case WEEKENDNUM:
 				 sb.append(" order by repuser.weekendNum");
 			break;
@@ -247,6 +266,9 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 			break;
 			case LNG_NORTH:
 				 sb.append(" order by repuser.lng_north");
+			break;
+			case INDATE:
+				 sb.append(" order by repuser.inDate");
 			break;
 			case LAT_EAST:
 				 sb.append(" order by repuser.lat_east");

@@ -62,6 +62,12 @@
 					</div>
 					 <div class="unit">
 						<label>
+							营业时间:
+						</label>
+									<input name="workTimeNum" class="textInput  "  size="30" type="text"  value="<s:property value="vo.workTimeNum"/>" />
+					</div>
+					 <div class="unit">
+						<label>
 							人流量-周末:
 						</label>
 									<input name="weekendNum" class="textInput  "  size="30" type="text"  value="<s:property value="vo.weekendNum"/>" />
@@ -100,7 +106,7 @@
 						<label>
 							位置:
 						</label>
-									<input name="location" class="textInput  "  size="30" type="text"  value="<s:property value="vo.location"/>" />
+									<input name="location" class="textInput  " readonly='true' size="30" type="text"  value="<s:property value="vo.location"/>" />
 					</div>
 					 <div class="unit">
 						<label>

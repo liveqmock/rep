@@ -5,6 +5,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import common.base.ParamSelect;
+import common.base.AllSelect;
+import common.base.SpringContextUtil;
+import dwz.constants.BeanManagerKey;
 import common.base.AllSelect;
 import common.base.AllSelectContants;
 import dwz.framework.core.business.AbstractBusinessObjectManager;
@@ -161,6 +165,12 @@ public class RepDataManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
+					case TIMESPAN:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repdata.timeSpan = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
 				default:
 					break;
 				}
@@ -211,6 +221,9 @@ public class RepDataManagerImpl extends AbstractBusinessObjectManager implements
 			break;
 			case PARAM3:
 				 sb.append(" order by repdata.param3");
+			break;
+			case TIMESPAN:
+				 sb.append(" order by repdata.timeSpan");
 			break;
 			default:
 				break;

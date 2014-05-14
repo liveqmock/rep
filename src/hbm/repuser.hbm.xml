@@ -15,11 +15,13 @@
 				<property name="masterPrice" column="price" type="double" />
 				<property name="workNum" column="people_flownum_work" type="int" />
 				<property name="workTime" column="work_time" type="string" />
+				<property name="workTimeNum" column="work_time_num" type="string" />
 				<property name="weekendNum" column="people_flownum_weekend" type="int" />
 				<property name="phone" column="phone" type="string" />
 				<property name="password" column="password" type="string" />
 				<property name="param1" column="param1" type="string" />
 				<property name="lng_north" column="lng_north" type="string" />
+				<property name="inDate" column="indate" type="date" />
 				<property name="lat_east" column="lat_east" type="string" />
 				<property name="location" column="location" type="string" />
 				<property name="param2" column="param2" type="string" />
