@@ -15,13 +15,31 @@
 			<table class="searchContent">
 				<tr>
 					<td> 
+						输入日期</td><td>
+							<input type="text" name="inputDate" class="date" size="30" />
+							<a class="inputDateButton" href="javascript:;">选择</a>
+					</td> 
+					<td> 
 						收集方式</td><td>
 								<input name="dataType" class="textInput" size="30" type="text"   />
+					</td> 
+					<td> 
+						统计用户</td><td>
+								<input name="userId" class="textInput" size="30" type="text"   />
 					</td> 
 				</tr>
 			</table>
 			<div class="subBar">
 				<ul>
+					<li>
+						<div class="buttonActive">
+							<div class="buttonContent">
+								<button type="submit">
+									检索
+								</button>
+							</div>
+						</div>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -42,6 +60,10 @@
 			<li>
 				<a class="edit" href="/rep/repdata!beforeUpdate.do?sno={sno}" mask="true"
 					target="dialog" title="修改"><span>修改</span> </a>
+			</li>
+			<li>
+				<a class="icon" href="/rep/repdata!export.do" target="dwzExport"
+					targetType="navTab" title="确实要导出这些记录吗?"><span>导出EXCEL</span> </a>
 			</li>
 		</ul>
 	</div>
@@ -72,6 +94,12 @@
 				<th width="100"    orderField="OLDNUM" >
 						老顾客人数 
 				</th> 
+				<th width=""    orderField="USERID" >
+						统计用户 
+				</th> 
+				<th width="0"    orderField="TIMESPAN" >
+						营业时间间隔 
+				</th> 
 			</tr>
 		</thead>
 		<tbody>
@@ -101,6 +129,12 @@
 					</td> 
 					<td>
 						<s:property value="oldNum" />
+					</td> 
+					<td>
+						<s:property value="userId" />
+					</td> 
+					<td>
+						<s:property value="timeSpan" />
 					</td> 
 				</tr>
 			</s:iterator>

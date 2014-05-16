@@ -8,12 +8,6 @@
 		<div class="pageFormContent" layoutH="57">
 					 <div class="unit">
 						<label>
-							用户id:
-						</label>
-									<input name="userId" class="textInput required" size="30" type="text"   />
-					</div>
-					 <div class="unit">
-						<label>
 							品牌名称:
 						</label>
 									<input name="brandName" class="textInput " size="30" type="text"   />

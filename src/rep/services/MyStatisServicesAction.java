@@ -69,7 +69,7 @@ public class MyStatisServicesAction extends BaseAction {
 		try {
 			List result = jdbcTool
 					.queryForList(
-							"select id as sno,indate as inputDate,g1 as statis1,g2 as statis2,g3 as statis3, g4 as statis4,"
+							"select id as sno,g1 as statis1,g2 as statis2,g3 as statis3, g4 as statis4,"
 									+ "g5 as statis5,g6 as statis6,problem,userId,rpi,rank from rep_stats where indate=? and userid=?",
 							args);
 			int allCount = jdbcTool.queryForInt(
@@ -82,6 +82,7 @@ public class MyStatisServicesAction extends BaseAction {
 								(CommonUtil.subtract(allCount, rank)),
 								allCount, 4), 100)
 								+ "%");
+				m.put("inputDate", indate);
 				r.setErrorCode(Result.SUCCESS);
 				r.setData(result.get(0));
 				r.setCount(1);

@@ -1,9 +1,7 @@
-<class name="RepUser" table="rep_user" desc="erp用户表" package="rep.user" noAdd="true" noQuery2="true" noExport="true"
-	namespace="/rep">
+<class name="RepUser" table="rep_user" desc="erp用户表" package="rep.user"
+	noAdd="true" noQuery2="true" namespace="/rep">
 	<id name="sno" column="id" type="int" desc="流水号" width="10" visible="false"
 		noedit="true" />
-	<property name="userId" column="userid" type="string" desc="用户id"
-		width="100" notnull="true" />
 	<property name="brandName" column="brandname" type="string"
 		querylike='true' width="120" desc="品牌名称" query="true" />
 	<property name="brandType" column="brandtype" type="string"
@@ -28,14 +26,15 @@
 		visible="false" noedit="true" width="100" desc="密码" />
 	<property name="param1" column="param1" type="string" width="100"
 		visible="false" desc="额外参数1" />
-	<property name="lng_north" column="lng_north" type="string" addVisible="false"
-		width="100" desc="纬度" />
-	<property name="inDate" column="indate" type="date" addVisible="false" editVisible="false"
-		width="100" desc="注册时间" />
-	<property name="lat_east" column="lat_east" type="string"
+	<property name="lng_north" column="lng_north" type="string"  editVisible="false"
+		addVisible="false" width="100" desc="纬度" />
+	<property name="inDate" column="indate" type="date"
+		addVisible="false" editVisible="false" width="100" desc="注册时间" />
+	<property name="lat_east" column="lat_east" type="string" addVisible="false" editVisible="false"
 		width="100" desc="经度" />
-	<property name="location" column="location" type="string" addVisible="false" noedit="true"
-		width="100" desc="位置" />
+	<property name="location" column="location" type="string"
+		query="true" querylike="true" addVisible="false" noedit="true" width="100"
+		desc="位置" />
 	<property name="param2" column="param2" type="string" width="100"
 		visible="false" desc="额外参数2" />
 </class>

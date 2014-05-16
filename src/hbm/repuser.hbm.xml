@@ -7,7 +7,6 @@
 		<id name="sno" column="id" type="int">
 			<generator class="increment"></generator>
 		</id>
-				<property name="userId" column="userid" type="string" />
 				<property name="brandName" column="brandname" type="string" />
 				<property name="brandType" column="brandtype" type="string" />
 				<property name="area" column="area" type="double" />

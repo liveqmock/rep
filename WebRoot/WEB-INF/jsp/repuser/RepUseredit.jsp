@@ -14,12 +14,6 @@
 		<div class="pageFormContent" layoutH="57"> 
 					 <div class="unit">
 						<label>
-							用户id:
-						</label>
-									<input name="userId" class="textInput  required"  size="30" type="text"  value="<s:property value="vo.userId"/>" />
-					</div>
-					 <div class="unit">
-						<label>
 							品牌名称:
 						</label>
 									<input name="brandName" class="textInput  "  size="30" type="text"  value="<s:property value="vo.brandName"/>" />
@@ -89,18 +83,6 @@
 							额外参数1:
 						</label>
 									<input name="param1" class="textInput  "  size="30" type="text"  value="<s:property value="vo.param1"/>" />
-					</div>
-					 <div class="unit">
-						<label>
-							纬度:
-						</label>
-									<input name="lng_north" class="textInput  "  size="30" type="text"  value="<s:property value="vo.lng_north"/>" />
-					</div>
-					 <div class="unit">
-						<label>
-							经度:
-						</label>
-									<input name="lat_east" class="textInput  "  size="30" type="text"  value="<s:property value="vo.lat_east"/>" />
 					</div>
 					 <div class="unit">
 						<label>

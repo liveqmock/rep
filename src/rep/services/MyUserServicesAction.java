@@ -8,6 +8,8 @@ import java.util.Random;
 
 import rep.jpush.Result;
 
+import brightmoon.util.DateUtil;
+
 import com.alibaba.fastjson.JSON;
 import common.MyJdbcTool;
 import common.base.SpringContextUtil;
@@ -266,9 +268,14 @@ public class MyUserServicesAction extends BaseAction {
 
 		MyJdbcTool jdbcTool = (MyJdbcTool) SpringContextUtil
 				.getBean("jdbcTool");
+		Date d = new Date();
+		String dstr = DateUtil.toString(d, "yyyy-MM-dd");
+		int yea = DateUtil.getYear(d);
+		int mon = DateUtil.getMonth(d);
+		int day = DateUtil.getDayOfMonth(d);
 		Object[] args = new Object[] { masterPrice, brandName, brandType,
 				phone, lng_north, lat_east, worktime, workNum, weekendNum,
-				password, location };
+				password, location,dstr,yea,mon,day };
 		// 查询有效的验证码.
 		List ans = getValidCode(jdbcTool, phone);
 		int count = 0;
@@ -337,7 +344,7 @@ public class MyUserServicesAction extends BaseAction {
 					jdbcTool.updateSql(
 							"insert into rep_user (price , brandName,"
 									+ "brandType, phone, lng_north, lat_east, "
-									+ "work_time, people_flownum_work, people_flownum_weekend,password,location ) values(?,?,?,?,?,?,?,?,?,?,?)",
+									+ "work_time, people_flownum_work, people_flownum_weekend,password,location,indate,year,month,day ) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
 							args);
 					r.setErrorCode(Result.SUCCESS);
 					r.setErrorMessage("注册成功");

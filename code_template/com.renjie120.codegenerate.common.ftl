@@ -4,6 +4,10 @@
 <#-- 将一个数据类型转换为对应的大写类型.除去int，double等类型 全部首字母大写，否则保持本来面目 -->
 <#macro datatype2 nm><#if '${nm}'!='int'&&'${nm}'!='float'&&'${nm}'!='double'&&'${nm}'!='boolean'>${nm?cap_first}<#else>${nm}</#if></#macro>
 
+<#-- 将一个数据类型转换为对应的大写类型.int->Integer double->Double float->Float  -->
+<#macro datatype3 nm><#if '${nm}'!='int'&&'${nm}'!='float'&&'${nm}'!='double'&&'${nm}'!='boolean'>${nm?cap_first}<#else><#if nm='int'>Integer<#elseif nm='double'>Double<#elseif nm='float'>Float<#else>${nm}</#if></#if></#macro>
+
+
 <#-- 修改类型名称.-->
 <#macro changetype nm><#if nm='int'>Integer<#elseif nm='double'>Double<#elseif nm='float'>Float<#else>${nm}</#if></#macro>
 
@@ -49,18 +53,18 @@
 <#-- 得到全部的get和set方法. -->
 <#macro allGetAndSet nm>
 	<#list nm as attr> 
-	private <@datatype nm="${attr.type}" key="${attr.iskey}"/> ${attr.name}; 
+	private <@datatype3 nm="${attr.type}" /> ${attr.name}; 
  	/**
  	 * 获取${attr.desc}的属性值.
  	 */
- 	public <@datatype nm="${attr.type}" key="${attr.iskey}"/> get${attr.name?cap_first}(){
+ 	public <@datatype3 nm="${attr.type}" /> get${attr.name?cap_first}(){
  		return ${attr.name};
  	}
  	
  	/**
  	 * 设置${attr.desc}的属性值.
  	 */
- 	public void set${attr.name?cap_first}(<@datatype nm="${attr.type}" key="${attr.iskey}"/> <@arg nm="${attr.name}"/>){
+ 	public void set${attr.name?cap_first}(<@datatype3 nm="${attr.type}" /> <@arg nm="${attr.name}"/>){
  		this.${attr.name} = <@arg nm="${attr.name}"/>;
  	}
  	 </#list>

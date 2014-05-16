@@ -20,6 +20,10 @@
 							<a class="inputDateButton" href="javascript:;">选择</a>
 					</td> 
 					<td> 
+						统计用户</td><td>
+								<input name="userId" class="textInput" size="30" type="text"   />
+					</td> 
+					<td> 
 						问题</td><td>
 								<input name="problem" class="textInput" size="30" type="text"   />
 					</td> 
@@ -65,7 +69,6 @@
 				<a class="icon" href="/rep/repstats!export.do" target="dwzExport"
 					targetType="navTab" title="确实要导出这些记录吗?"><span>导出EXCEL</span> </a>
 			</li>
-
 		</ul>
 	</div>
 	<table class="table" layoutH="-138">
@@ -94,6 +97,9 @@
 				</th> 
 				<th width="100"    orderField="STATIS6" >
 						统计数据6 
+				</th> 
+				<th width="100"    orderField="USERID" >
+						统计用户 
 				</th> 
 				<th width="100"    orderField="RPI" >
 						rpi数值 
@@ -133,6 +139,9 @@
 					</td> 
 					<td>
 						<s:property value="statis6" />
+					</td> 
+					<td>
+						<s:property value="userId" />
 					</td> 
 					<td>
 						<s:property value="rpi" />

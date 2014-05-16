@@ -99,12 +99,6 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
-					case USERID:
-						sb.append(count == 0 ? " where" : " and").append(
-								"  repuser.userId = ? ");
-						argList.add(entry.getValue());
-						count++;
-					break;
 					case BRANDNAME:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repuser.brandName like ? ");
@@ -197,8 +191,8 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 					break;
 					case LOCATION:
 						sb.append(count == 0 ? " where" : " and").append(
-								"  repuser.location = ? ");
-						argList.add(entry.getValue());
+								"  repuser.location like ? ");
+						argList.add("%"+entry.getValue()+"%");
 						count++;
 					break;
 					case PARAM2:
@@ -224,9 +218,6 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 		switch (orderBy) {
 			case SNO:
 				 sb.append(" order by repuser.sno");
-			break;
-			case USERID:
-				 sb.append(" order by repuser.userId");
 			break;
 			case BRANDNAME:
 				 sb.append(" order by repuser.brandName");

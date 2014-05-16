@@ -84,17 +84,27 @@ public class MyDataServicesAction extends BaseAction {
 	private int buyNum;
 	//回头客
 	private int oldNum;
+	//时间段
+	private String timeSpan;
+	public String getTimeSpan() {
+		return timeSpan;
+	}
+	public void setTimeSpan(String timeSpan) {
+		this.timeSpan = timeSpan;
+	}
 	//用户id
 	private String userId;
 	
 	public String addData(){
 		Object[] args = new Object[] { indate, dataType, comeNum,
-				intrestNum, tryNum, buyNum, oldNum, userId  };
+				intrestNum, tryNum, buyNum, oldNum, userId,timeSpan  };
 	 	Result<String> r = new Result<String>();
 	 	MyJdbcTool jdbcTool = (MyJdbcTool) SpringContextUtil
 				.getBean("jdbcTool");
+	 	String tk = MyUserServicesAction.geneateToken(userId);
+	 	System.out.println("tk="+tk);
 	 	//验证失败.
-	 	if(!MyUserServicesAction.geneateToken(userId).equals(token)){
+	 	if(!tk.equals(token)){
 	 		r.setErrorCode(Result.VALID_WRONG);
 			r.setErrorMessage("url验证失败，请传入正确的token");
 			r.setCount(0);
@@ -105,7 +115,7 @@ public class MyDataServicesAction extends BaseAction {
 			 jdbcTool.updateSql(
 						"insert into rep_data (indate , datatype,"
 								+ "come_num, intrest_num, try_num, buy_num, "
-								+ "old_num, userid ) values(?,?,?,?,?,?,?,?)",
+								+ "old_num, userid,timespan ) values(?,?,?,?,?,?,?,?,?)",
 						args);
 				r.setErrorCode(Result.SUCCESS);
 				r.setErrorMessage("添加成功");

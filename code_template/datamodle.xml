@@ -1,29 +1,31 @@
-<class name="RepData" table="rep_data" desc="erp数据记录" package="rep.data"
-	noExport="true" noQuery2="true" noQuery="true" namespace="/rep">
+<class name="RepStats" table="rep_stats" desc="erp统计记录" package="rep.stats"
+	namespace="/rep">
 	<id name="sno" column="id" type="int" desc="流水号" width="10" visible="false"
 		noedit="true" />
 	<property name="inputDate" column="indate" type="date" desc="输入日期"
-		width="100" notnull="true" />
-	<property name="dataType" column="datatype" type="string"
-		width="120" desc="收集方式" query="true" />
-	<property name="comeNum" column="come_num" type="int" desc="进店人数"
+		query="true" width="100" notnull="true" />
+	<property name="statis1" column="g1" type="double" width="100"
+		desc="统计数据1" />
+	<property name="statis2" column="g2" type="double" desc="统计数据2"
 		width="100" />
-	<property name="instrestNum" column="intrest_num" type="int"
-		desc="感兴趣人数" width="100" />
-	<property name="tryNum" column="try_num" type="int" desc="试衣人数"
+	<property name="statis3" column="g3" type="double" desc="统计数据3"
 		width="100" />
-	<property name="buyNum" column="buy_num" type="int" width="100"
-		desc="购买人数" />
-	<property name="oldNum" column="old_num" type="int" desc="老顾客人数"
+	<property name="statis4" column="g4" type="double" desc="统计数据4"
 		width="100" />
-	<property name="userId" column="userid" type="int" desc="统计用户"
-		noedit="true" visible="false" />
-	<property name="param1" column="param1" type="string" width="0"
-		addVisible="false" noedit="true" visible="false" desc="额外参数1" />
+	<property name="statis5" column="g5" type="double" width="100"
+		desc="统计数据5" />
+	<property name="statis6" column="g6" type="double" desc="统计数据6"
+		width="100" />
+	<property name="userId" column="userid" type="int" desc="统计用户" query="true"
+		noedit="true" width="100" />
+	<property name="rpi" column="rpi" type="double" desc="rpi数值"
+		width="100" />
+	<property name="rank" column="rank" type="double" desc="排名"
+		width="100" />
+	<property name="problem" column="problem" type="string" width="100"
+		query="true" querylike='true' desc="问题" />
 	<property name="param2" column="param2" type="string" width="0"
-		addVisible="false" noedit="true" visible="false" desc="额外参数2" />
-	<property name="param3" column="param3" type="string" width="0"
-		addVisible="false" noedit="true" visible="false" desc="额外参数3" />
-	<property name="timeSpan" column="timespan" type="string"
-		width="0" addVisible="false" noedit="true" visible="false" desc="营业时间间隔" />
+		noedit="true" visible="false" desc="额外参数2" />
+	<property name="param1" column="param1" type="string" width="0"
+		noedit="true" visible="false" desc="额外参数1" />
 </class>

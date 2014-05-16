@@ -26,6 +26,10 @@
 						联系方式</td><td>
 								<input name="phone" class="textInput" size="30" type="text"   />
 					</td> 
+					<td> 
+						位置</td><td>
+								<input name="location" class="textInput" size="30" type="text"   />
+					</td> 
 				</tr>
 			</table>
 			<div class="subBar">
@@ -56,6 +60,10 @@
 				<a class="edit" href="/rep/repuser!beforeUpdate.do?sno={sno}" mask="true"
 					target="dialog" title="修改"><span>修改</span> </a>
 			</li>
+			<li>
+				<a class="icon" href="/rep/repuser!export.do" target="dwzExport"
+					targetType="navTab" title="确实要导出这些记录吗?"><span>导出EXCEL</span> </a>
+			</li>
 		</ul>
 	</div>
 	<table class="table" layoutH="-138">
@@ -64,9 +72,6 @@
 				<th width="30">
 					<input type="checkbox" group="ids" class="checkboxCtrl">
 				</th>
-				<th width="100"    orderField="USERID" >
-						用户id 
-				</th> 
 				<th width="120"    orderField="BRANDNAME" >
 						品牌名称 
 				</th> 
@@ -118,9 +123,6 @@
 						<input name="ids" value="<s:property value="sno" />"
 							type="checkbox">
 					</td>
-					<td>
-						<s:property value="userId" />
-					</td> 
 					<td>
 						<s:property value="brandName" />
 					</td> 

@@ -215,6 +215,8 @@ public class RepDataAction extends BaseAction {
 		Map<RepDataSearchFields, Object> criterias = new HashMap<RepDataSearchFields, Object>();
 			if (getDataType()!=null&&!"".equals(getDataType()))
 			 	criterias.put(RepDataSearchFields.DATATYPE,  getDataType());
+			if (getUserId()!=null&&getUserId() !=0)
+				criterias.put(RepDataSearchFields.USERID, getUserId()); 
 		return criterias;
 	}
 
@@ -338,18 +340,18 @@ public class RepDataAction extends BaseAction {
  	public void setOldNum(int oldnum){
  		this.oldNum = oldnum;
  	}
-	private int userId; 
+	private Integer userId; 
  	/**
  	 * 获取统计用户的属性值.
  	 */
- 	public int getUserId(){
+ 	public Integer getUserId(){
  		return userId;
  	}
  	
  	/**
  	 * 设置统计用户的属性值.
  	 */
- 	public void setUserId(int userid){
+ 	public void setUserId(Integer userid){
  		this.userId = userid;
  	}
 	private String param1; 

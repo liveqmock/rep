@@ -9,6 +9,7 @@ import dwz.constants.BeanManagerKey;
 import dwz.framework.core.exception.ValidateFieldsException;
 import dwz.framework.utils.excel.XlsExport;
 import dwz.present.BaseAction;
+import common.util.DateUtil;
 
 /**
  * 关于${model.classDesc}的Action操作类.
@@ -184,6 +185,9 @@ public class ${bignm}Action extends BaseAction {
 		 	<#if '${attr.type}'='int'||'${attr.type}'='double'||'${attr.type}'='float'>
 			if (get${attr.name?cap_first}()!=null&&get${attr.name?cap_first}() !=0)
 				criterias.put(${bignm}SearchFields.${attr.name?upper_case}, get${attr.name?cap_first}()); 
+			<#elseif '${attr.type}'='date'>
+			if (get${attr.name?cap_first}()!=null)
+				criterias.put(${bignm}SearchFields.${attr.name?upper_case}, DateUtil.toString(get${attr.name?cap_first}(),"yyyy-MM-dd")); 
 			<#else>
 			 	<#if '${attr.type}'='string'>
 			 	<#if '${attr.selectType}'=''>

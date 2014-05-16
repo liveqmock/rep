@@ -1,0 +1,29 @@
+<class name="RepData" table="rep_data" desc="erp数据记录" package="rep.data"
+	noQuery2="true" namespace="/rep">
+	<id name="sno" column="id" type="int" desc="流水号" width="10" visible="false"
+		noedit="true" />
+	<property name="inputDate" column="indate" type="date" desc="输入日期"
+		width="100" notnull="true" query="true" />
+	<property name="dataType" column="datatype" type="string"
+		width="120" desc="收集方式" query="true" />
+	<property name="comeNum" column="come_num" type="int" desc="进店人数"
+		width="100" />
+	<property name="instrestNum" column="intrest_num" type="int"
+		desc="感兴趣人数" width="100" />
+	<property name="tryNum" column="try_num" type="int" desc="试衣人数"
+		width="100" />
+	<property name="buyNum" column="buy_num" type="int" width="100"
+		desc="购买人数" />
+	<property name="oldNum" column="old_num" type="int" desc="老顾客人数"
+		width="100" />
+	<property name="userId" column="userid" type="int" desc="统计用户"
+		query="true" noedit="true" />
+	<property name="param1" column="param1" type="string" width="0"
+		addVisible="false" noedit="true" visible="false" desc="额外参数1" />
+	<property name="param2" column="param2" type="string" width="0"
+		addVisible="false" noedit="true" visible="false" desc="额外参数2" />
+	<property name="param3" column="param3" type="string" width="0"
+		addVisible="false" noedit="true" visible="false" desc="额外参数3" />
+	<property name="timeSpan" column="timespan" type="string"
+		width="0" noedit="true" desc="营业时间间隔" />
+</class>

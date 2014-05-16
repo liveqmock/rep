@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-
+import common.util.DateUtil;
 import common.base.ParamSelect;
 import common.base.AllSelect;
 import common.base.SpringContextUtil;
@@ -115,6 +115,8 @@ public class ${model.className}ManagerImpl extends AbstractBusinessObjectManager
 								"  ${classarg}.${attr.name} <#if '${attr.type}'='string'&&'${attr.querylike}'='true'>like<#else>=</#if> ? ");
 						<#if '${attr.type}'='string'&&'${attr.querylike}'='true'>
 						argList.add("%"+entry.getValue()+"%");
+						<#elseif '${attr.type}'='date'>
+						argList.add(DateUtil.getDate(entry.getValue().toString(),"yyyy-MM-dd"));
 						<#else>
 						argList.add(entry.getValue());
 						</#if>

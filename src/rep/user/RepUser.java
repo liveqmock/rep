@@ -15,10 +15,6 @@ public interface RepUser extends BusinessObject {
  	 */
  	public  Integer   getSno();
  	/**
- 	 * 获取用户id的属性值.
- 	 */
- 	public  String   getUserId();
- 	/**
  	 * 获取品牌名称的属性值.
  	 */
  	public  String   getBrandName();

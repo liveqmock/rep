@@ -17,9 +17,8 @@ public class RepUserVO implements Serializable {
 
 	}
 	
-	public RepUserVO( int sno , String userId , String brandName , String brandType , double area , String address , double masterPrice , int workNum , String workTime , String workTimeNum , int weekendNum , String phone , String password , String param1 , String lng_north , Date inDate , String lat_east , String location , String param2 ) {
+	public RepUserVO( int sno , String brandName , String brandType , double area , String address , double masterPrice , int workNum , String workTime , String workTimeNum , int weekendNum , String phone , String password , String param1 , String lng_north , Date inDate , String lat_east , String location , String param2 ) {
 		 this.sno = sno;
-		 this.userId = userId;
 		 this.brandName = brandName;
 		 this.brandType = brandType;
 		 this.area = area;
@@ -39,8 +38,7 @@ public class RepUserVO implements Serializable {
 		 this.param2 = param2;
 	}
 	
-	public RepUserVO(String userId ,String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,String workTime ,String workTimeNum ,int weekendNum ,String phone ,String password ,String param1 ,String lng_north ,Date inDate ,String lat_east ,String location ,String param2 ) {
-			 this.userId = userId;
+	public RepUserVO(String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,String workTime ,String workTimeNum ,int weekendNum ,String phone ,String password ,String param1 ,String lng_north ,Date inDate ,String lat_east ,String location ,String param2 ) {
 			 this.brandName = brandName;
 			 this.brandType = brandType;
 			 this.area = area;
@@ -74,20 +72,6 @@ public class RepUserVO implements Serializable {
  	public void setSno(Integer sno){
  		this.sno = sno;
  	}
-	private String userId; 
- 	/**
- 	 * 获取用户id的属性值.
- 	 */
- 	public String getUserId(){
- 		return userId;
- 	}
- 	
- 	/**
- 	 * 设置用户id的属性值.
- 	 */
- 	public void setUserId(String userid){
- 		this.userId = userid;
- 	}
 	private String brandName; 
  	/**
  	 * 获取品牌名称的属性值.
@@ -116,18 +100,18 @@ public class RepUserVO implements Serializable {
  	public void setBrandType(String brandtype){
  		this.brandType = brandtype;
  	}
-	private double area; 
+	private Double area; 
  	/**
  	 * 获取营业面积的属性值.
  	 */
- 	public double getArea(){
+ 	public Double getArea(){
  		return area;
  	}
  	
  	/**
  	 * 设置营业面积的属性值.
  	 */
- 	public void setArea(double area){
+ 	public void setArea(Double area){
  		this.area = area;
  	}
 	private String address; 
@@ -144,32 +128,32 @@ public class RepUserVO implements Serializable {
  	public void setAddress(String address){
  		this.address = address;
  	}
-	private double masterPrice; 
+	private Double masterPrice; 
  	/**
  	 * 获取主力单价的属性值.
  	 */
- 	public double getMasterPrice(){
+ 	public Double getMasterPrice(){
  		return masterPrice;
  	}
  	
  	/**
  	 * 设置主力单价的属性值.
  	 */
- 	public void setMasterPrice(double masterprice){
+ 	public void setMasterPrice(Double masterprice){
  		this.masterPrice = masterprice;
  	}
-	private int workNum; 
+	private Integer workNum; 
  	/**
  	 * 获取人流量-工作日的属性值.
  	 */
- 	public int getWorkNum(){
+ 	public Integer getWorkNum(){
  		return workNum;
  	}
  	
  	/**
  	 * 设置人流量-工作日的属性值.
  	 */
- 	public void setWorkNum(int worknum){
+ 	public void setWorkNum(Integer worknum){
  		this.workNum = worknum;
  	}
 	private String workTime; 
@@ -200,18 +184,18 @@ public class RepUserVO implements Serializable {
  	public void setWorkTimeNum(String worktimenum){
  		this.workTimeNum = worktimenum;
  	}
-	private int weekendNum; 
+	private Integer weekendNum; 
  	/**
  	 * 获取人流量-周末的属性值.
  	 */
- 	public int getWeekendNum(){
+ 	public Integer getWeekendNum(){
  		return weekendNum;
  	}
  	
  	/**
  	 * 设置人流量-周末的属性值.
  	 */
- 	public void setWeekendNum(int weekendnum){
+ 	public void setWeekendNum(Integer weekendnum){
  		this.weekendNum = weekendnum;
  	}
 	private String phone; 

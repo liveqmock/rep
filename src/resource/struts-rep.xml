@@ -20,11 +20,11 @@
 			<result name="list">
 				/WEB-INF/jsp/pushcontent/PushContentlist.jsp
 			</result>
-					<result name="detail">
-						/WEB-INF/jsp/pushcontent/PushContentinfo.jsp
+			<result name="detail">
+				/WEB-INF/jsp/pushcontent/PushContentinfo.jsp
 			</result>
-					<result name="editdetail">
-						/WEB-INF/jsp/pushcontent/PushContentedit.jsp
+			<result name="editdetail">
+				/WEB-INF/jsp/pushcontent/PushContentedit.jsp
 			</result>
 		</action>
 		<action name="jpush" class="rep.jpush.JpushAction">
@@ -39,6 +39,12 @@
 			</result>
 			<result name="editdetail">
 				/WEB-INF/jsp/repstats/RepStatsedit.jsp
+			</result>
+			<result name="report">
+				/WEB-INF/jsp/repuser/report.jsp
+			</result>
+			<result name="report2">
+				/WEB-INF/jsp/repuser/report2.jsp
 			</result>
 		</action>
 		<action name="repdata" class="rep.data.RepDataAction">

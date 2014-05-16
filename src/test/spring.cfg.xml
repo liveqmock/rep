@@ -61,9 +61,6 @@
 					dwz/persistence/beans/InvProduct.hbm.xml
 				</value>
 				<value>
-					hbm/moneyDetail.hbm.xml
-				</value>
-				<value>
 					hbm/param.hbm.xml
 				</value>
 				<value>
@@ -76,10 +73,19 @@
 					hbm/homepageurl.hbm.xml
 				</value>
 				<value>
-					hbm/plan.hbm.xml
+					hbm/pushcontent.hbm.xml
 				</value>
 				<value>
 					hbm/myuser.hbm.xml
+				</value>
+				<value>
+					hbm/repuser.hbm.xml
+				</value>
+				<value>
+					hbm/repstats.hbm.xml
+				</value>
+				<value>
+					hbm/repdata.hbm.xml
 				</value>
 				<value>
 					hbm/filemanager.hbm.xml
@@ -97,12 +103,6 @@
 					hbm/role.hbm.xml
 				</value>
 				<value>
-					hbm/stockmanager.hbm.xml
-				</value>
-				<value>
-					hbm/moneytype.hbm.xml
-				</value>
-				<value>
 					hbm/question.hbm.xml
 				</value>
 				<value>
@@ -110,9 +110,6 @@
 				</value>
 				<value>
 					hbm/cache.hbm.xml
-				</value>
-				<value>
-					hbm/diary.hbm.xml
 				</value>
 			</list>
 		</property>
@@ -139,21 +136,7 @@
 		</property>
 	</bean>
 
-	<bean id="stockmanagerManager" class="money.stockmanage.StockManagerManagerImpl">
-		<constructor-arg index="0" ref="stockmanagerDao"></constructor-arg>
-	</bean>
-	<bean id="stockmanagerDao" parent="daoProxy">
-		<property name="proxyInterfaces">
-			<value>money.stockmanage.StockManagerDao</value>
-		</property>
-		<property name="target">
-			<bean parent="baseDao">
-				<constructor-arg value="money.stockmanage.StockManagerVO">
-				</constructor-arg>
-			</bean>
-		</property>
-	</bean>
-
+	 
 	<bean id="propertyFileConfigForDB"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
@@ -236,9 +219,7 @@
 	<!-- <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"> 
 		<property name="basenames"> <list> <value>resource/messages</value> </list> 
 		</property> </bean> -->
-
-	<import resource="spring_dao_money.cfg.xml" />
-	<import resource="spring_manager_money.cfg.xml" />
+ 
 
 	<bean id="SpringContextUtil" class="common.base.SpringContextUtil">
 	</bean>
