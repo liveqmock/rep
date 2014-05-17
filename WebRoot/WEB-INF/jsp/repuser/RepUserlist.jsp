@@ -26,6 +26,10 @@
 						联系方式</td><td>
 								<input name="phone" class="textInput" size="30" type="text"   />
 					</td> 
+					<td> 
+						位置</td><td>
+								<input name="location" class="textInput" size="30" type="text"   />
+					</td> 
 				</tr>
 			</table>
 			<div class="subBar">
@@ -39,10 +43,6 @@
 							</div>
 						</div>
 					</li>
-					<li>
-						<a class="button" href="/rep/repuser!beforeQuery.do"
-							target="dialog" mask="true" title="查询框"><span>高级检索</span> </a>
-					</li>
 				</ul>
 			</div>
 		</div>
@@ -51,10 +51,6 @@
 <div class="pageContent">
 	<div class="panelBar">
 		<ul class="toolBar">
-			<li>
-				<a class="add" href="/rep/repuser!beforeAdd.do" target="dialog" mask="true"
-					title="添加"><span>添加</span> </a>
-			</li>
 			<li>
 				<a class="delete" href="/rep/repuser!doDelete.do" postType="string"
 					target="selectedTodo" rel="ids" title="确定要删除吗?"><span>删除</span>
@@ -68,7 +64,6 @@
 				<a class="icon" href="/rep/repuser!export.do" target="dwzExport"
 					targetType="navTab" title="确实要导出这些记录吗?"><span>导出EXCEL</span> </a>
 			</li>
-
 		</ul>
 	</div>
 	<table class="table" layoutH="-138">
@@ -76,7 +71,7 @@
 			<tr>
 				<th width="30">
 					<input type="checkbox" group="ids" class="checkboxCtrl">
-				</th> 
+				</th>
 				<th width="120"    orderField="BRANDNAME" >
 						品牌名称 
 				</th> 
@@ -98,6 +93,9 @@
 				<th width="100"    orderField="WORKTIME" >
 						营业时间 
 				</th> 
+				<th width="100"    orderField="WORKTIMENUM" >
+						营业时间 
+				</th> 
 				<th width="60"    orderField="WEEKENDNUM" >
 						人流量-周末 
 				</th> 
@@ -106,6 +104,9 @@
 				</th> 
 				<th width="100"    orderField="LNG_NORTH" >
 						纬度 
+				</th> 
+				<th width="100"    orderField="INDATE" >
+						注册时间 
 				</th> 
 				<th width="100"    orderField="LAT_EAST" >
 						经度 
@@ -121,7 +122,7 @@
 					<td>
 						<input name="ids" value="<s:property value="sno" />"
 							type="checkbox">
-					</td> 
+					</td>
 					<td>
 						<s:property value="brandName" />
 					</td> 
@@ -144,6 +145,9 @@
 						<s:property value="workTime" />
 					</td> 
 					<td>
+						<s:property value="workTimeNum" />
+					</td> 
+					<td>
 						<s:property value="weekendNum" />
 					</td> 
 					<td>
@@ -151,6 +155,9 @@
 					</td> 
 					<td>
 						<s:property value="lng_north" />
+					</td> 
+					<td>
+						<s:property value="inDate" />
 					</td> 
 					<td>
 						<s:property value="lat_east" />

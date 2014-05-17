@@ -5,6 +5,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
+import common.base.ParamSelect;
+import common.base.AllSelect;
+import common.base.SpringContextUtil;
+import dwz.constants.BeanManagerKey;
 import common.base.AllSelect;
 import common.base.AllSelectContants;
 import dwz.framework.core.business.AbstractBusinessObjectManager;
@@ -95,12 +99,6 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
-					case USERID:
-						sb.append(count == 0 ? " where" : " and").append(
-								"  repuser.userId = ? ");
-						argList.add(entry.getValue());
-						count++;
-					break;
 					case BRANDNAME:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repuser.brandName like ? ");
@@ -143,6 +141,12 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
+					case WORKTIMENUM:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.workTimeNum = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
 					case WEEKENDNUM:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repuser.weekendNum = ? ");
@@ -173,6 +177,12 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 						argList.add(entry.getValue());
 						count++;
 					break;
+					case INDATE:
+						sb.append(count == 0 ? " where" : " and").append(
+								"  repuser.inDate = ? ");
+						argList.add(entry.getValue());
+						count++;
+					break;
 					case LAT_EAST:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repuser.lat_east = ? ");
@@ -181,8 +191,8 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 					break;
 					case LOCATION:
 						sb.append(count == 0 ? " where" : " and").append(
-								"  repuser.location = ? ");
-						argList.add(entry.getValue());
+								"  repuser.location like ? ");
+						argList.add("%"+entry.getValue()+"%");
 						count++;
 					break;
 					case PARAM2:
@@ -209,9 +219,6 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 			case SNO:
 				 sb.append(" order by repuser.sno");
 			break;
-			case USERID:
-				 sb.append(" order by repuser.userId");
-			break;
 			case BRANDNAME:
 				 sb.append(" order by repuser.brandName");
 			break;
@@ -233,6 +240,9 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 			case WORKTIME:
 				 sb.append(" order by repuser.workTime");
 			break;
+			case WORKTIMENUM:
+				 sb.append(" order by repuser.workTimeNum");
+			break;
 			case WEEKENDNUM:
 				 sb.append(" order by repuser.weekendNum");
 			break;
@@ -247,6 +257,9 @@ public class RepUserManagerImpl extends AbstractBusinessObjectManager implements
 			break;
 			case LNG_NORTH:
 				 sb.append(" order by repuser.lng_north");
+			break;
+			case INDATE:
+				 sb.append(" order by repuser.inDate");
 			break;
 			case LAT_EAST:
 				 sb.append(" order by repuser.lat_east");

@@ -18,6 +18,7 @@
 				<property name="param1" column="param1" type="string" />
 				<property name="param2" column="param2" type="string" />
 				<property name="param3" column="param3" type="string" />
+				<property name="timeSpan" column="timespan" type="string" />
 	</class>
 
 	<query name="rep.data.RepDataDao.findRecordById">

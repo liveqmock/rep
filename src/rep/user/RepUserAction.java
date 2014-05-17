@@ -4,9 +4,8 @@ package rep.user;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-
-import com.opensymphony.xwork2.ActionContext;
-
+import java.util.Date;
+import com.opensymphony.xwork2.ActionContext; 
 import dwz.constants.BeanManagerKey;
 import dwz.framework.core.exception.ValidateFieldsException;
 import dwz.framework.utils.excel.XlsExport;
@@ -40,7 +39,7 @@ public class RepUserAction extends BaseAction {
 
 	public String doAdd() {
 		try {
-			RepUserImpl repuserImpl = new RepUserImpl(userId ,brandName ,brandType ,area ,address ,masterPrice ,workNum ,workTime ,weekendNum ,phone ,password ,param1 ,lng_north ,lat_east ,location ,param2 );
+			RepUserImpl repuserImpl = new RepUserImpl(brandName ,brandType ,area ,address ,masterPrice ,workNum ,workTime ,workTimeNum ,weekendNum ,phone ,password ,param1 ,lng_north ,inDate ,lat_east ,location ,param2 );
 			pMgr.createRepUser(repuserImpl);
 		} catch (ValidateFieldsException e) {
 			log.error(e);
@@ -63,7 +62,7 @@ public class RepUserAction extends BaseAction {
 
 	public String doUpdate() {
 		try {
-			RepUserImpl repuserImpl = new RepUserImpl( sno , userId , brandName , brandType , area , address , masterPrice , workNum , workTime , weekendNum , phone , password , param1 , lng_north , lat_east , location , param2 );
+			RepUserImpl repuserImpl = new RepUserImpl( sno , brandName , brandType , area , address , masterPrice , workNum , workTime , workTimeNum , weekendNum , phone , password , param1 , lng_north , inDate , lat_east , location , param2 );
 			pMgr.updateRepUser(repuserImpl);
 		} catch (ValidateFieldsException e) {
 			e.printStackTrace();
@@ -73,7 +72,7 @@ public class RepUserAction extends BaseAction {
 	} 
 	
 	public enum ExportFiled {
-		  SNO("流水号"),  USERID("用户id"),  BRANDNAME("品牌名称"),  BRANDTYPE("品类"),  AREA("营业面积"),  ADDRESS("店铺地址"),  MASTERPRICE("主力单价"),  WORKNUM("人流量-工作日"),  WORKTIME("营业时间"),  WEEKENDNUM("人流量-周末"),  PHONE("联系方式"),  PASSWORD("密码"),  PARAM1("额外参数1"),  LNG_NORTH("纬度"),  LAT_EAST("经度"),  LOCATION("位置"),  PARAM2("额外参数2");
+		  SNO("流水号"),  BRANDNAME("品牌名称"),  BRANDTYPE("品类"),  AREA("营业面积"),  ADDRESS("店铺地址"),  MASTERPRICE("主力单价"),  WORKNUM("人流量-工作日"),  WORKTIME("营业时间"),  WORKTIMENUM("营业时间"),  WEEKENDNUM("人流量-周末"),  PHONE("联系方式"),  PASSWORD("密码"),  PARAM1("额外参数1"),  LNG_NORTH("纬度"),  INDATE("注册时间"),  LAT_EAST("经度"),  LOCATION("位置"),  PARAM2("额外参数2");
 		private String str;
 
 		ExportFiled(String str) {
@@ -117,9 +116,6 @@ public class RepUserAction extends BaseAction {
 					case SNO:
 						 e.setCell(filed.ordinal(), repuser.getSno()); 
 					break;
-					case USERID:
-						 e.setCell(filed.ordinal(), repuser.getUserId()); 
-					break;
 					case BRANDNAME:
 						 e.setCell(filed.ordinal(), repuser.getBrandName()); 
 					break;
@@ -141,6 +137,9 @@ public class RepUserAction extends BaseAction {
 					case WORKTIME:
 						 e.setCell(filed.ordinal(), repuser.getWorkTime()); 
 					break;
+					case WORKTIMENUM:
+						 e.setCell(filed.ordinal(), repuser.getWorkTimeNum()); 
+					break;
 					case WEEKENDNUM:
 						 e.setCell(filed.ordinal(), repuser.getWeekendNum()); 
 					break;
@@ -155,6 +154,9 @@ public class RepUserAction extends BaseAction {
 					break;
 					case LNG_NORTH:
 						 e.setCell(filed.ordinal(), repuser.getLng_north()); 
+					break;
+					case INDATE:
+						 e.setCell(filed.ordinal(), repuser.getInDate()); 
 					break;
 					case LAT_EAST:
 						 e.setCell(filed.ordinal(), repuser.getLat_east()); 
@@ -232,6 +234,8 @@ public class RepUserAction extends BaseAction {
 				criterias.put(RepUserSearchFields.ADDRESS, "%"+getAddress()+"%"); 
 			if (getPhone()!=null&&!"".equals(getPhone()))
 			 	criterias.put(RepUserSearchFields.PHONE,  getPhone());
+			if (getLocation()!=null&&!"".equals(getLocation()))
+				criterias.put(RepUserSearchFields.LOCATION, "%"+getLocation()+"%"); 
 		return criterias;
 	}
 
@@ -256,20 +260,6 @@ public class RepUserAction extends BaseAction {
  	 */
  	public void setSno(Integer sno){
  		this.sno = sno;
- 	}
-	private String userId; 
- 	/**
- 	 * 获取用户id的属性值.
- 	 */
- 	public String getUserId(){
- 		return userId;
- 	}
- 	
- 	/**
- 	 * 设置用户id的属性值.
- 	 */
- 	public void setUserId(String userid){
- 		this.userId = userid;
  	}
 	private String brandName; 
  	/**
@@ -299,18 +289,18 @@ public class RepUserAction extends BaseAction {
  	public void setBrandType(String brandtype){
  		this.brandType = brandtype;
  	}
-	private double area; 
+	private Double area; 
  	/**
  	 * 获取营业面积的属性值.
  	 */
- 	public double getArea(){
+ 	public Double getArea(){
  		return area;
  	}
  	
  	/**
  	 * 设置营业面积的属性值.
  	 */
- 	public void setArea(double area){
+ 	public void setArea(Double area){
  		this.area = area;
  	}
 	private String address; 
@@ -327,32 +317,32 @@ public class RepUserAction extends BaseAction {
  	public void setAddress(String address){
  		this.address = address;
  	}
-	private double masterPrice; 
+	private Double masterPrice; 
  	/**
  	 * 获取主力单价的属性值.
  	 */
- 	public double getMasterPrice(){
+ 	public Double getMasterPrice(){
  		return masterPrice;
  	}
  	
  	/**
  	 * 设置主力单价的属性值.
  	 */
- 	public void setMasterPrice(double masterprice){
+ 	public void setMasterPrice(Double masterprice){
  		this.masterPrice = masterprice;
  	}
-	private int workNum; 
+	private Integer workNum; 
  	/**
  	 * 获取人流量-工作日的属性值.
  	 */
- 	public int getWorkNum(){
+ 	public Integer getWorkNum(){
  		return workNum;
  	}
  	
  	/**
  	 * 设置人流量-工作日的属性值.
  	 */
- 	public void setWorkNum(int worknum){
+ 	public void setWorkNum(Integer worknum){
  		this.workNum = worknum;
  	}
 	private String workTime; 
@@ -369,18 +359,32 @@ public class RepUserAction extends BaseAction {
  	public void setWorkTime(String worktime){
  		this.workTime = worktime;
  	}
-	private int weekendNum; 
+	private String workTimeNum; 
+ 	/**
+ 	 * 获取营业时间的属性值.
+ 	 */
+ 	public String getWorkTimeNum(){
+ 		return workTimeNum;
+ 	}
+ 	
+ 	/**
+ 	 * 设置营业时间的属性值.
+ 	 */
+ 	public void setWorkTimeNum(String worktimenum){
+ 		this.workTimeNum = worktimenum;
+ 	}
+	private Integer weekendNum; 
  	/**
  	 * 获取人流量-周末的属性值.
  	 */
- 	public int getWeekendNum(){
+ 	public Integer getWeekendNum(){
  		return weekendNum;
  	}
  	
  	/**
  	 * 设置人流量-周末的属性值.
  	 */
- 	public void setWeekendNum(int weekendnum){
+ 	public void setWeekendNum(Integer weekendnum){
  		this.weekendNum = weekendnum;
  	}
 	private String phone; 
@@ -438,6 +442,20 @@ public class RepUserAction extends BaseAction {
  	 */
  	public void setLng_north(String lng_north){
  		this.lng_north = lng_north;
+ 	}
+	private Date inDate; 
+ 	/**
+ 	 * 获取注册时间的属性值.
+ 	 */
+ 	public Date getInDate(){
+ 		return inDate;
+ 	}
+ 	
+ 	/**
+ 	 * 设置注册时间的属性值.
+ 	 */
+ 	public void setInDate(Date indate){
+ 		this.inDate = indate;
  	}
 	private String lat_east; 
  	/**

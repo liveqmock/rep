@@ -1,0 +1,17 @@
+<class name="PushContent" table="push_content" desc="推送信息表"
+	noQuery="false" noQuery2="true" noAdd="false" noEdit="false" noDel="false"
+	noExport="true" package="rep.pushcontent" namespace="/rep">
+	<id name="sno" column="id" type="int" desc="流水号" width="10" visible="false"
+		noedit="true" />
+	<property name="userIds" column="userid" type="string" desc="推送用户id"
+		visible="false" width="100" />
+	<property name="content" column="content" type="string"
+		querylike='true' width="150" desc="推送内容" query="true" textarea="true" />
+	<property name="pushTime" column="push_time" type="date"
+		  addVisible="false" noedit="true" desc="推送时间"
+		width="100" />
+	<property name="userNames" column="userName" type="string"
+		desc="推送用户" width="250" />
+	<property name="deviceType" column="deviceType" type="string"
+		desc="推送机器类型" selectType="deviceType" query="true" width="50" />
+</class>

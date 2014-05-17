@@ -4,8 +4,36 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
 	http://www.springframework.org/schema/tx 
-	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
-
+	http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"> 
+	<bean id="quartzJob" class="rep.services.StatisService"></bean>
+	<bean id="jobtask"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzJob" />
+		</property>
+		<property name="targetMethod">
+			<value>work</value>
+		</property>
+	</bean>
+	<!-- 每天半夜0点过1分执行一次.开始执行一遍 -->
+	<bean id="doTime" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="jobtask" />
+		</property>
+		<property name="cronExpression">
+			<value>* 1 0 * * ?</value>
+		</property>
+	</bean>
+	<!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序 -->
+	<bean id="startQuertz" lazy-init="false" autowire="no"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="doTime" />
+			</list>
+		</property>
+	</bean>
+	<!-- 以上是同步配置. -->
 	<bean id="propertyFileConfigForDB"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">

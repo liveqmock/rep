@@ -91,7 +91,7 @@ public class RepStatsImpl implements RepStats {
  	/**
  	 * 获取统计用户的属性值.
  	 */
- 	public  Integer   getUserId(){
+ 	public  int   getUserId(){
  		return this.repstatsVO.getUserId();
  	}
  	/**

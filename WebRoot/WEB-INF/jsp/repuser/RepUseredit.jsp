@@ -14,12 +14,6 @@
 		<div class="pageFormContent" layoutH="57"> 
 					 <div class="unit">
 						<label>
-							用户id:
-						</label>
-									<input name="userId" class="textInput  required"  size="30" type="text"  value="<s:property value="vo.userId"/>" />
-					</div>
-					 <div class="unit">
-						<label>
 							品牌名称:
 						</label>
 									<input name="brandName" class="textInput  "  size="30" type="text"  value="<s:property value="vo.brandName"/>" />
@@ -62,6 +56,12 @@
 					</div>
 					 <div class="unit">
 						<label>
+							营业时间:
+						</label>
+									<input name="workTimeNum" class="textInput  "  size="30" type="text"  value="<s:property value="vo.workTimeNum"/>" />
+					</div>
+					 <div class="unit">
+						<label>
 							人流量-周末:
 						</label>
 									<input name="weekendNum" class="textInput  "  size="30" type="text"  value="<s:property value="vo.weekendNum"/>" />
@@ -86,21 +86,9 @@
 					</div>
 					 <div class="unit">
 						<label>
-							纬度:
-						</label>
-									<input name="lng_north" class="textInput  "  size="30" type="text"  value="<s:property value="vo.lng_north"/>" />
-					</div>
-					 <div class="unit">
-						<label>
-							经度:
-						</label>
-									<input name="lat_east" class="textInput  "  size="30" type="text"  value="<s:property value="vo.lat_east"/>" />
-					</div>
-					 <div class="unit">
-						<label>
 							位置:
 						</label>
-									<input name="location" class="textInput  "  size="30" type="text"  value="<s:property value="vo.location"/>" />
+									<input name="location" class="textInput  " readonly='true' size="30" type="text"  value="<s:property value="vo.location"/>" />
 					</div>
 					 <div class="unit">
 						<label>

@@ -79,6 +79,12 @@
 						</label>
 									<input name="param3" class="textInput  " readonly='true' size="30" type="text"  value="<s:property value="vo.param3"/>" />
 					</div>
+					 <div class="unit">
+						<label>
+							营业时间间隔:
+						</label>
+									<input name="timeSpan" class="textInput  " readonly='true' size="30" type="text"  value="<s:property value="vo.timeSpan"/>" />
+					</div>
 		</div>
 		<div class="formBar">
 			<ul>

@@ -15,10 +15,6 @@ public interface RepUser extends BusinessObject {
  	 */
  	public  Integer   getSno();
  	/**
- 	 * 获取用户id的属性值.
- 	 */
- 	public  String   getUserId();
- 	/**
  	 * 获取品牌名称的属性值.
  	 */
  	public  String   getBrandName();
@@ -47,6 +43,10 @@ public interface RepUser extends BusinessObject {
  	 */
  	public  String   getWorkTime();
  	/**
+ 	 * 获取营业时间的属性值.
+ 	 */
+ 	public  String   getWorkTimeNum();
+ 	/**
  	 * 获取人流量-周末的属性值.
  	 */
  	public  int   getWeekendNum();
@@ -66,6 +66,10 @@ public interface RepUser extends BusinessObject {
  	 * 获取纬度的属性值.
  	 */
  	public  String   getLng_north();
+ 	/**
+ 	 * 获取注册时间的属性值.
+ 	 */
+ 	public  Date   getInDate();
  	/**
  	 * 获取经度的属性值.
  	 */

@@ -5,8 +5,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import common.base.AllSelect;
-import common.base.AllSelectContants;
+import common.util.DateUtil;
+
 import dwz.framework.core.business.AbstractBusinessObjectManager;
 import dwz.framework.core.exception.ValidateFieldsException;
 
@@ -98,7 +98,7 @@ public class RepStatsManagerImpl extends AbstractBusinessObjectManager implement
 					case INPUTDATE:
 						sb.append(count == 0 ? " where" : " and").append(
 								"  repstats.inputDate = ? ");
-						argList.add(entry.getValue());
+						argList.add(DateUtil.getDate(entry.getValue().toString(),"yyyy-MM-dd"));
 						count++;
 					break;
 					case STATIS1:

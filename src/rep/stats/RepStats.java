@@ -45,7 +45,7 @@ public interface RepStats extends BusinessObject {
  	/**
  	 * 获取统计用户的属性值.
  	 */
- 	public  Integer   getUserId();
+ 	public  int   getUserId();
  	/**
  	 * 获取rpi数值的属性值.
  	 */

@@ -7,7 +7,6 @@
 		<id name="sno" column="id" type="int">
 			<generator class="increment"></generator>
 		</id>
-				<property name="userId" column="userid" type="string" />
 				<property name="brandName" column="brandname" type="string" />
 				<property name="brandType" column="brandtype" type="string" />
 				<property name="area" column="area" type="double" />
@@ -15,11 +14,13 @@
 				<property name="masterPrice" column="price" type="double" />
 				<property name="workNum" column="people_flownum_work" type="int" />
 				<property name="workTime" column="work_time" type="string" />
+				<property name="workTimeNum" column="work_time_num" type="string" />
 				<property name="weekendNum" column="people_flownum_weekend" type="int" />
 				<property name="phone" column="phone" type="string" />
 				<property name="password" column="password" type="string" />
 				<property name="param1" column="param1" type="string" />
 				<property name="lng_north" column="lng_north" type="string" />
+				<property name="inDate" column="indate" type="date" />
 				<property name="lat_east" column="lat_east" type="string" />
 				<property name="location" column="location" type="string" />
 				<property name="param2" column="param2" type="string" />

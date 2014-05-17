@@ -73,6 +73,12 @@
 						</label>
 									<input name="param3" class="textInput " size="30" type="text"   />
 					</div>
+					 <div class="unit">
+						<label>
+							营业时间间隔:
+						</label>
+									<input name="timeSpan" class="textInput " size="30" type="text"   />
+					</div>
 		</div>
 		<div class="formBar">
 			<ul>

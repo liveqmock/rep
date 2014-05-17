@@ -17,7 +17,7 @@ public class RepDataVO implements Serializable {
 
 	}
 	
-	public RepDataVO( int sno , Date inputDate , String dataType , int comeNum , int instrestNum , int tryNum , int buyNum , int oldNum , int userId , String param1 , String param2 , String param3 ) {
+	public RepDataVO( int sno , Date inputDate , String dataType , int comeNum , int instrestNum , int tryNum , int buyNum , int oldNum , int userId , String param1 , String param2 , String param3 , String timeSpan ) {
 		 this.sno = sno;
 		 this.inputDate = inputDate;
 		 this.dataType = dataType;
@@ -30,9 +30,10 @@ public class RepDataVO implements Serializable {
 		 this.param1 = param1;
 		 this.param2 = param2;
 		 this.param3 = param3;
+		 this.timeSpan = timeSpan;
 	}
 	
-	public RepDataVO(Date inputDate ,String dataType ,int comeNum ,int instrestNum ,int tryNum ,int buyNum ,int oldNum ,int userId ,String param1 ,String param2 ,String param3 ) {
+	public RepDataVO(Date inputDate ,String dataType ,int comeNum ,int instrestNum ,int tryNum ,int buyNum ,int oldNum ,int userId ,String param1 ,String param2 ,String param3 ,String timeSpan ) {
 			 this.inputDate = inputDate;
 			 this.dataType = dataType;
 			 this.comeNum = comeNum;
@@ -44,6 +45,7 @@ public class RepDataVO implements Serializable {
 			 this.param1 = param1;
 			 this.param2 = param2;
 			 this.param3 = param3;
+			 this.timeSpan = timeSpan;
 	}
 	 
 	private Integer sno; 
@@ -213,5 +215,19 @@ public class RepDataVO implements Serializable {
  	 */
  	public void setParam3(String param3){
  		this.param3 = param3;
+ 	}
+	private String timeSpan; 
+ 	/**
+ 	 * 获取营业时间间隔的属性值.
+ 	 */
+ 	public String getTimeSpan(){
+ 		return timeSpan;
+ 	}
+ 	
+ 	/**
+ 	 * 设置营业时间间隔的属性值.
+ 	 */
+ 	public void setTimeSpan(String timespan){
+ 		this.timeSpan = timespan;
  	}
 }

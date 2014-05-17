@@ -17,12 +17,12 @@ public class RepUserImpl implements RepUser {
 		this.repuserVO = repuserVO;
 	}
 
-	public RepUserImpl( int sno , String userId , String brandName , String brandType , double area , String address , double masterPrice , int workNum , String workTime , int weekendNum , String phone , String password , String param1 , String lng_north , String lat_east , String location , String param2 ) {
-		this.repuserVO = new RepUserVO( sno , userId , brandName , brandType , area , address , masterPrice , workNum , workTime , weekendNum , phone , password , param1 , lng_north , lat_east , location , param2 );
+	public RepUserImpl( int sno , String brandName , String brandType , double area , String address , double masterPrice , int workNum , String workTime , String workTimeNum , int weekendNum , String phone , String password , String param1 , String lng_north , Date inDate , String lat_east , String location , String param2 ) {
+		this.repuserVO = new RepUserVO( sno , brandName , brandType , area , address , masterPrice , workNum , workTime , workTimeNum , weekendNum , phone , password , param1 , lng_north , inDate , lat_east , location , param2 );
 	} 
 	
-	public RepUserImpl(String userId ,String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,String workTime ,int weekendNum ,String phone ,String password ,String param1 ,String lng_north ,String lat_east ,String location ,String param2 ) {
-		this.repuserVO = new RepUserVO(userId ,brandName ,brandType ,area ,address ,masterPrice ,workNum ,workTime ,weekendNum ,phone ,password ,param1 ,lng_north ,lat_east ,location ,param2 );
+	public RepUserImpl(String brandName ,String brandType ,double area ,String address ,double masterPrice ,int workNum ,String workTime ,String workTimeNum ,int weekendNum ,String phone ,String password ,String param1 ,String lng_north ,Date inDate ,String lat_east ,String location ,String param2 ) {
+		this.repuserVO = new RepUserVO(brandName ,brandType ,area ,address ,masterPrice ,workNum ,workTime ,workTimeNum ,weekendNum ,phone ,password ,param1 ,lng_north ,inDate ,lat_east ,location ,param2 );
 	} 
 
 	public RepUserVO getRepUserVO() {
@@ -45,12 +45,6 @@ public class RepUserImpl implements RepUser {
  	 */
  	public  Integer   getSno(){
  		return this.repuserVO.getSno();
- 	}
- 	/**
- 	 * 获取用户id的属性值.
- 	 */
- 	public  String   getUserId(){
- 		return this.repuserVO.getUserId();
  	}
  	/**
  	 * 获取品牌名称的属性值.
@@ -95,6 +89,12 @@ public class RepUserImpl implements RepUser {
  		return this.repuserVO.getWorkTime();
  	}
  	/**
+ 	 * 获取营业时间的属性值.
+ 	 */
+ 	public  String   getWorkTimeNum(){
+ 		return this.repuserVO.getWorkTimeNum();
+ 	}
+ 	/**
  	 * 获取人流量-周末的属性值.
  	 */
  	public  int   getWeekendNum(){
@@ -123,6 +123,12 @@ public class RepUserImpl implements RepUser {
  	 */
  	public  String   getLng_north(){
  		return this.repuserVO.getLng_north();
+ 	}
+ 	/**
+ 	 * 获取注册时间的属性值.
+ 	 */
+ 	public  Date   getInDate(){
+ 		return this.repuserVO.getInDate();
  	}
  	/**
  	 * 获取经度的属性值.
