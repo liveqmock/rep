@@ -179,7 +179,7 @@ if(arr)
 					cursor: 'pointer',
 	                dataLabels: {
 	                    enabled: true,   
-	                    format:  _format?_format:'{point.name}({y})'
+	                    format:  _format?_format:'{point.name}({y}):{point.percentage:.1f} %'
 	                } 
 	            }
 	        },
