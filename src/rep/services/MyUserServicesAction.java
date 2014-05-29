@@ -311,6 +311,9 @@ public class MyUserServicesAction extends BaseAction {
 				if (password == null) {
 					password = Coder.toMyCoder("123456");
 					args[9] = password;
+				}else{
+					password = Coder.toMyCoder(password);
+					args[9] =password;
 				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -345,6 +348,167 @@ public class MyUserServicesAction extends BaseAction {
 							"insert into rep_user (price , brandName,"
 									+ "brandType, phone, lng_north, lat_east, "
 									+ "work_time, people_flownum_work, people_flownum_weekend,password,location,indate,year,month,day ) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+							args);
+					r.setErrorCode(Result.SUCCESS);
+					r.setErrorMessage("注册成功");
+					r.setCount(0);
+					writeToPage(response, JSON.toJSONString(r));
+					return null;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				r.setErrorCode(Result.SREVER_ERROR);
+				r.setErrorMessage("出现异常.");
+				r.setCount(0);
+				writeToPage(response, JSON.toJSONString(r));
+				return null;
+			}
+		} else {
+			r.setErrorCode(Result.NO_VALIDCODE);
+			r.setErrorMessage("数据库中没有对应的验证码，请重新生成");
+			r.setCount(0);
+			writeToPage(response, JSON.toJSONString(r));
+			return null;
+		}
+
+	}
+	
+	/**
+	 * 附加注册。
+	 * 
+	 * @Title: regiest
+	 * @Description: TODO(这里用一句话描述这个方法的作用)
+	 * @param @return
+	 * @return String
+	 * @throws
+	 */
+	public String addRegiest() {
+
+		MyJdbcTool jdbcTool = (MyJdbcTool) SpringContextUtil
+				.getBean("jdbcTool");
+		Object[] args = new Object[] { masterPrice, brandName, brandType,
+				lng_north, lat_east, worktime, workNum, weekendNum, location,
+				phone };
+		Result<String> r = new Result<String>();
+		if (workNum == 0  ) {
+			r.setErrorCode(Result.ARGUMENT_ERROR);
+			r.setErrorMessage("缺少参数:工作日人流量");
+			r.setCount(0);
+			writeToPage(response, JSON.toJSONString(r));
+			return null;
+		}
+		if (workNum == 0 || weekendNum == 0) {
+			r.setErrorCode(Result.ARGUMENT_ERROR);
+			r.setErrorMessage("缺少参数:节假日人流量");
+			r.setCount(0);
+			writeToPage(response, JSON.toJSONString(r));
+			return null;
+		}
+		if (!geneatePublicToken(phone).equals(token)) {
+			r.setErrorCode(Result.VALID_WRONG);
+			r.setErrorMessage("url验证失败，请传入正确的token");
+			r.setCount(0);
+			writeToPage(response, JSON.toJSONString(r));
+			return null;
+		}
+
+		// 查询用户名进行验证.
+		try { 
+			// 注册用户数据信息.
+			jdbcTool.updateSql(
+					"update rep_user set price=? , brandName=?,"
+							+ "brandType=?,   lng_north=?, lat_east=?, "
+							+ "work_time=?, people_flownum_work=?, people_flownum_weekend=?, location=? where phone=?  ",
+					args);
+			r.setErrorCode(Result.SUCCESS);
+			r.setErrorMessage("注册成功");
+			r.setCount(0);
+			writeToPage(response, JSON.toJSONString(r));
+			return null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			r.setErrorCode(Result.SREVER_ERROR);
+			r.setErrorMessage("出现异常.");
+			r.setCount(0);
+			writeToPage(response, JSON.toJSONString(r));
+			return null;
+		}
+
+	}
+
+	public String fastRegiest() {
+
+		MyJdbcTool jdbcTool = (MyJdbcTool) SpringContextUtil
+				.getBean("jdbcTool");
+		Date d = new Date();
+		String dstr = DateUtil.toString(d, "yyyy-MM-dd");
+		int yea = DateUtil.getYear(d);
+		int mon = DateUtil.getMonth(d);
+		int day = DateUtil.getDayOfMonth(d);
+		Object[] args = new Object[] { phone, password, dstr, yea, mon, day };
+		// 查询有效的验证码.
+		List ans = getValidCode(jdbcTool, phone);
+		int count = 0;
+		Result<String> r = new Result<String>();
+		if (isEmpty(validCode)) {
+			r.setErrorCode(Result.ARGUMENT_ERROR);
+			r.setErrorMessage("请输入正确的验证码");
+			r.setCount(0);
+			writeToPage(response, JSON.toJSONString(r));
+			return null;
+		}
+		if (!geneatePublicToken(phone).equals(token)) {
+			r.setErrorCode(Result.VALID_WRONG);
+			r.setErrorMessage("url验证失败，请传入正确的token");
+			r.setCount(0);
+			writeToPage(response, JSON.toJSONString(r));
+			return null;
+		}
+		if (ans != null && ans.size() > 0) {
+			Map m = (HashMap) ans.get(0);
+			String _valid = m.get("validcode") + "";
+			if (validCode == null || !validCode.equals(_valid)) {
+				r.setErrorCode(Result.WRONG_TOKEN);
+				r.setErrorMessage("验证码不正确");
+				r.setCount(0);
+				writeToPage(response, JSON.toJSONString(r));
+				return null;
+			}
+			Object[] args2 = new Object[] { validCode, phone };
+
+			// 生成默认密码.
+			try {
+				if (password == null) {
+					password = Coder.toMyCoder("123456");
+					args[1] = password;
+				} else {
+					password = Coder.toMyCoder(password);
+					args[1] = password;
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			// 查询用户名进行验证.
+			try {
+				count = jdbcTool.queryForInt(
+						"select count(1) from rep_user  where phone =?",
+						new Object[] { phone });
+				if (count > 0) {
+					r.setErrorCode(Result.ARGUMENT_ERROR);
+					r.setErrorMessage("用户名已经存在，注册失败");
+					r.setCount(0);
+					writeToPage(response, JSON.toJSONString(r));
+					return null;
+				} else { 
+					// 更新验证码为失效
+					jdbcTool.updateSql(
+							"update shortmessage_info set completed=1 where validCode=? and mobile = ?",
+							args2);
+					// 注册用户数据信息.
+					jdbcTool.updateSql(
+							"insert into rep_user ( phone ,password, indate,year,month,day ) values( ?,?,?,?,?,?)",
 							args);
 					r.setErrorCode(Result.SUCCESS);
 					r.setErrorMessage("注册成功");
