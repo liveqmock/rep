@@ -441,6 +441,7 @@ public class MyUserServicesAction extends BaseAction {
 				} else {
 					Map result = new HashMap();
 					result.put("phone", m.get("phone"));
+					result.put("userId", m.get("id"));
 					result.put("brandName", m.get("brandname"));
 					result.put("brandType", m.get("brandtype"));
 					result.put("workNum", m.get("people_flownum_work"));
@@ -448,7 +449,7 @@ public class MyUserServicesAction extends BaseAction {
 					result.put("lng_north", m.get("lng_north"));
 					result.put("lat_east", m.get("lat_east"));
 					result.put("worktime", m.get("work_time"));
-					result.put("token", geneateToken("" + m.get("phone")));
+					result.put("token", geneateToken("" + m.get("id")));
 					r2.setData(result);
 					r2.setErrorCode(Result.SUCCESS);
 					r2.setErrorMessage("登陆成功!");
