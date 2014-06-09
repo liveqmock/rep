@@ -365,7 +365,7 @@ public class MyUserServicesAction extends BaseAction {
 			}
 		} else {
 			r.setErrorCode(Result.NO_VALIDCODE);
-			r.setErrorMessage("数据库中没有对应的验证码，请重新生成");
+			r.setErrorMessage("验证码不正确，请重新生成");
 			r.setCount(0);
 			writeToPage(response, JSON.toJSONString(r));
 			return null;

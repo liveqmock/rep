@@ -122,7 +122,7 @@
 
 
 	<welcome-file-list>
-		<welcome-file>index!index.do</welcome-file> 
+		<welcome-file>/homepage/index.html</welcome-file> 
 		<!--<welcome-file>/homepage/index.html</welcome-file>-->
 	</welcome-file-list>
 
