@@ -89,6 +89,22 @@ public class StatisService {
 	}
 
 	/**
+	 * 查询店外人数.
+	* @Title: getOutNum
+	* @Description: TODO(这里用一句话描述这个方法的作用)
+	* @param @param jdbcTool
+	* @param @param userId
+	* @param @param indate
+	* @param @return
+	* @return int
+	* @throws
+	 */
+	public int getOutNum(MyJdbcTool jdbcTool,   int userId,
+			String indate) {
+		int outNum = 0;
+		return outNum;
+	}
+	/**
 	 * 添加统计数据到统计表中.
 	 * 
 	 * @Title: addData
