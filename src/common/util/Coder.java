@@ -105,7 +105,7 @@ public abstract class Coder {
 	public static void main(String[] args) {
 //		System.out.println(fromMyCoder("FsVc`4CL@fUxCm=W").trim());
 		try {
-			System.out.println(toMyCoder("1"));
+			System.out.println(toMyCoder("26"));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
